@@ -4,6 +4,8 @@ import './App.css'
 import { Fragment } from 'react'
 import Home from './loginScreen-components/pages/Home.js'
 import About from './loginScreen-components/pages/About.js'
+import { Canvas } from '@react-three/fiber'
+import Experience from './game-components/Experience.js'
 const App = () => {
 	return (
 		<Router>
@@ -13,6 +15,14 @@ const App = () => {
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='/about' element={<About />} />
+						<Route
+							path='/experience'
+							element={
+								<Canvas>
+									<Experience />
+								</Canvas>
+							}
+						/>
 					</Routes>
 				</div>
 			</Fragment>
