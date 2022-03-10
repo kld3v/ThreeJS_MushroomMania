@@ -7,7 +7,7 @@ const { check, validationResult } = require('express-validator')
 
 const Player = require('../models/Player.js')
 
-// @route       POST api/users
+// @route       POST api/players
 // @desc        register a player
 // @access      public
 router.post(
@@ -33,7 +33,7 @@ router.post(
 			if (player) {
 				return res.status(400).json({ msg: 'Username taken' })
 			} else if (playerEmail) {
-				return res.status(400).json({ msg: 'Email already exists' })
+				return res.status(400).json({ msg: 'Email already exists you maggot scum' })
 			}
 
 			player = new Player({

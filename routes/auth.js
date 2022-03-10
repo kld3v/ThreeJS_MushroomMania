@@ -8,7 +8,7 @@ const { check, validationResult } = require('express-validator')
 
 const Player = require('../models/Player.js')
 
-// @route       GET api/users
+// @route       GET api/auth
 // @desc        get the player which has logged in
 // @access      private
 router.get('/', auth, async (req, res) => {
@@ -23,7 +23,7 @@ router.get('/', auth, async (req, res) => {
 	}
 })
 
-// @route       POST api/users
+// @route       POST api/auth
 // @desc        authenticate player and return token
 // @access      private
 router.post(

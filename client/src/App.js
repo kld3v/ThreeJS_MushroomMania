@@ -8,29 +8,42 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './components/game-components/Experience.js'
 
 import ItemState from './context/Item/ItemState'
+import AuthState from './context/auth/AuthState'
+import AlertState from './context/alert/AlertState'
+
+import Register from './components/loginScreen-components/auth/Register'
+import Login from './components/loginScreen-components/auth/Login'
+import Alert from './components/loginScreen-components/layout/Alert'
 const App = () => {
 	return (
-		<ItemState>
-			<Router>
-				<Fragment>
-					<Navbar />
-					<div className='container'>
-						<Routes>
-							<Route path='/' element={<Home />} />
-							<Route path='/about' element={<About />} />
-							<Route
-								path='/experience'
-								element={
-									<Canvas>
-										<Experience />
-									</Canvas>
-								}
-							/>
-						</Routes>
-					</div>
-				</Fragment>
-			</Router>
-		</ItemState>
+		<AuthState>
+			<ItemState>
+				<AlertState>
+					<Router>
+						<Fragment>
+							<Navbar />
+							<div className='container'>
+								<Alert />
+								<Routes>
+									<Route path='/' element={<Home />} />
+									<Route path='/about' element={<About />} />
+									<Route
+										path='/experience'
+										element={
+											<Canvas>
+												<Experience />
+											</Canvas>
+										}
+									/>
+									<Route path='/register' element={<Register />} />
+									<Route path='/login' element={<Login />} />
+								</Routes>
+							</div>
+						</Fragment>
+					</Router>
+				</AlertState>
+			</ItemState>
+		</AuthState>
 	)
 }
 
