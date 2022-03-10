@@ -56,11 +56,14 @@ const ItemState = (props) => {
 	const deleteItem = (id) => {
 		dispatch({ type: DELETE_ITEM, payload: id })
 	}
+	// used for setting the current items to a new state for editing, then sent to reducer for action.
 	// set current item
-
 	// clear current item
 
 	// update item
+	// const equipItem = (id) => {
+	// 	dispatch({ type: EQUIP_ITEM, payload: id })
+	// }
 
 	// filter items
 
@@ -72,6 +75,7 @@ const ItemState = (props) => {
 				items: state.items,
 				addItem,
 				deleteItem,
+				// equipItem,
 			}}
 		>
 			{props.children}

@@ -12,6 +12,10 @@ const Item = ({ item }) => {
 		deleteItem(id)
 	}
 
+	// const onEquip = () => {
+	// 	equipItem(id)
+	// }
+
 	return (
 		<div className='card bg-light'>
 			<h3 className='text-primary text-left'>{name}</h3>

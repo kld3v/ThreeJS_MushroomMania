@@ -21,6 +21,27 @@ export default (state, action) => {
 				...state,
 				items: state.items.filter((item) => item.id !== action.payload),
 			}
+
+		// not working, need to look at. If desperate use current state etc.
+		// case EQUIP_ITEM:
+		// 	return {
+		// 		...state,
+		// 		items: state.items.map((item) => {
+		// 			if (item.id === action.payload.id) {
+		// 				return {
+		// 					id: item.id,
+		// 					name: item.name,
+		// 					material: item.material,
+		// 					value: item.value,
+		// 					equipped: !item.equipped,
+		// 					image: item.image,
+		// 				}
+		// 			} else {
+		// 				return item
+		// 			}
+		// 		}),
+		// 	}
+
 		default:
 			return state
 	}
