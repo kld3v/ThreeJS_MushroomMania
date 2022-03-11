@@ -7,7 +7,7 @@ import setAuthToken from '../../utils/setAuthToken'
 import {
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
-	USER_LOADED,
+	PLAYER_LOADED,
 	AUTH_ERROR,
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
@@ -18,7 +18,7 @@ import {
 const AuthState = (props) => {
 	const initialState = {
 		token: localStorage.getItem('token'),
-		isAuthenticated: null,
+		isAuthenticated: false,
 		loading: true,
 		player: null,
 		error: null,
@@ -32,15 +32,17 @@ const AuthState = (props) => {
 		//@to-do load token in to global header
 		if (localStorage.token) {
 			setAuthToken(localStorage.token)
+			console.log('token logged')
 		}
 		try {
 			const res = await axios.get('/api/auth')
-
-			dispatch({ type: USER_LOADED, payload: res.data })
+			console.log(res)
+			dispatch({ type: PLAYER_LOADED, payload: res.data })
 		} catch (err) {
 			dispatch({ type: AUTH_ERROR })
 		}
 	}
+
 	// register player
 	const register = async (formData) => {
 		const config = {
@@ -51,10 +53,12 @@ const AuthState = (props) => {
 
 		try {
 			const res = await axios.post('/api/players', formData, config)
+			console.log(res)
 			dispatch({
 				type: REGISTER_SUCCESS,
 				payload: res.data,
 			})
+			loadPlayer()
 		} catch (err) {
 			dispatch({
 				type: REGISTER_FAIL,
@@ -84,6 +88,7 @@ const AuthState = (props) => {
 				player: state.player,
 				error: state.error,
 				register,
+				loadPlayer,
 				loginPlayer,
 				logoutPlayer,
 				clearErrors,

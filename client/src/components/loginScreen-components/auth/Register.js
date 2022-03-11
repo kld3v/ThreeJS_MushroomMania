@@ -1,19 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
+
 import AlertContext from '../../../context/alert/alertContext'
 import AuthContext from '../../../context/auth/authContext'
 
-const Register = () => {
+const Register = (props) => {
 	const alertContext = useContext(AlertContext)
 	const authContext = useContext(AuthContext)
 	const { setAlert } = alertContext
-	const { register, error, clearErrors } = authContext
+	const { register, error, clearErrors, isAuthenticated } = authContext
 
 	useEffect(() => {
-		if (error === 'Username taken' || 'Email already exists') {
+		if (error === 'Email already exists') {
 			setAlert(error, 'danger')
 			clearErrors()
 		}
-	}, [error])
+		// eslint-disable-next-line
+	}, [error, isAuthenticated, props.history])
 
 	const [player, setPlayer] = useState({
 		username: '',
@@ -45,6 +48,9 @@ const Register = () => {
 			})
 		}
 	}
+
+	if (isAuthenticated) return <Navigate to='/' />
+
 	return (
 		<div className='form-container'>
 			<h1>

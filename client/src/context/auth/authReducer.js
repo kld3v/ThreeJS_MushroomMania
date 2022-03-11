@@ -1,7 +1,7 @@
 import {
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
-	USER_LOADED,
+	PLAYER_LOADED,
 	AUTH_ERROR,
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
@@ -9,12 +9,12 @@ import {
 	CLEAR_ERRORS,
 } from '../types.js'
 
-export default (state, action) => {
+const authReducer = (state, action) => {
 	switch (action.type) {
-		case USER_LOADED:
+		case PLAYER_LOADED:
 			return {
 				...state,
-				isAutheniticated: true,
+				isAuthenticated: true,
 				loading: false,
 				player: action.payload,
 			}
@@ -46,3 +46,5 @@ export default (state, action) => {
 			return state
 	}
 }
+
+export default authReducer

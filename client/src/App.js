@@ -14,6 +14,13 @@ import AlertState from './context/alert/AlertState'
 import Register from './components/loginScreen-components/auth/Register'
 import Login from './components/loginScreen-components/auth/Login'
 import Alert from './components/loginScreen-components/layout/Alert'
+
+import setAuthToken from './utils/setAuthToken'
+
+if (localStorage.token) {
+	setAuthToken(localStorage.token)
+}
+
 const App = () => {
 	return (
 		<AuthState>
