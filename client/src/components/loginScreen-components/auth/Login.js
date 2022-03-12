@@ -43,7 +43,11 @@ const Login = () => {
 			})
 		}
 	}
+	// eventually I will want it to take us straight to experience, but some reason I cannot access AuthContext in experience to run loadPlayer, meaning if the user refreshes the page it doesn't keep them logged in. A bug to fix.
 
+	// if (isAuthenticated) return <Navigate to='/experience' />
+
+	// taking us to the home page for now to sort out logout function.
 	if (isAuthenticated) return <Navigate to='/' />
 
 	return (

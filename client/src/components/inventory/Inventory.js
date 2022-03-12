@@ -11,7 +11,7 @@ const Inventory = () => {
 
 	return (
 		<Fragment>
-			<AddItem />
+			{/* <AddItem /> */}
 			{items.map((item) => (
 				<Item key={item.id} item={item} />
 			))}

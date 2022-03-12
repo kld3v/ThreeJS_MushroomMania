@@ -1,6 +1,17 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import Box from './Box'
+import AuthContext from '../../context/auth/authContext'
+
 const Experience = () => {
+	const authContext = useContext(AuthContext)
+
+	// authContext.loadPlayer()
+
+	// useEffect(() => {
+	// 	authContext.loadPlayer()
+
+	// }, [])
+
 	return (
 		<Fragment>
 			<ambientLight />

@@ -51,6 +51,9 @@ const Register = (props) => {
 
 	if (isAuthenticated) return <Navigate to='/' />
 
+	// eventually I will want it to take us straight to experience, but some reason I cannot access AuthContext in experience to run loadPlayer, meaning if the user refreshes the page it doesn't keep them logged in. A bug to fix.
+	// if (isAuthenticated) return <Navigate to='/experience' />
+
 	return (
 		<div className='form-container'>
 			<h1>
