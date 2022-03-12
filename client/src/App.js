@@ -1,5 +1,5 @@
 import Navbar from './components/loginScreen-components/layout/Navbar.js'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Fragment } from 'react'
 import Home from './components/loginScreen-components/pages/Home.js'
@@ -14,7 +14,7 @@ import AlertState from './context/alert/AlertState'
 import Register from './components/loginScreen-components/auth/Register'
 import Login from './components/loginScreen-components/auth/Login'
 import Alert from './components/loginScreen-components/layout/Alert'
-
+import PrivateRoute from './components/routing/PrivateRoute'
 import setAuthToken from './utils/setAuthToken'
 
 if (localStorage.token) {
@@ -26,13 +26,13 @@ const App = () => {
 		<AuthState>
 			<ItemState>
 				<AlertState>
-					<Router>
+					<BrowserRouter>
 						<Fragment>
 							<Navbar />
 							<div className='container'>
 								<Alert />
 								<Routes>
-									<Route path='/' element={<Home />} />
+									<Route path='/' element={<PrivateRoute component={Home} />} />
 									<Route path='/about' element={<About />} />
 									<Route
 										path='/experience'
@@ -47,7 +47,7 @@ const App = () => {
 								</Routes>
 							</div>
 						</Fragment>
-					</Router>
+					</BrowserRouter>
 				</AlertState>
 			</ItemState>
 		</AuthState>
