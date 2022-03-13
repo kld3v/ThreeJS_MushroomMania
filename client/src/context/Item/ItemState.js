@@ -1,45 +1,23 @@
 import React, { useReducer } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+import axios from 'axios'
+
 import ItemContext from './itemContext.js'
 import itemReducer from './itemReducer.js'
+
 import {
 	ADD_ITEM,
 	DELETE_ITEM,
-	SET_CURRENT,
-	CLEAR_CURRENT,
+	ITEM_ERROR,
+	GET_ITEMS,
 	EQUIP_ITEM,
-	FILTER_ITEMS,
-	CLEAR_FILTER,
+	CLEAR_ITEMS,
 } from '../types.js'
 
 const ItemState = (props) => {
 	const initialState = {
-		items: [
-			{
-				id: 1,
-				name: 'Magic Stone',
-				material: 'rock',
-				value: '20 el',
-				equipped: true,
-				image: '../../resources/magicstone.jpg',
-			},
-			{
-				id: 2,
-				name: 'Stray Dog Hair',
-				material: 'hair',
-				value: '0 el',
-				equipped: false,
-				image: '../../resources/doghair.jpg',
-			},
-			{
-				id: 3,
-				name: 'Crystal Orb',
-				material: 'crystal',
-				value: '240 el',
-				equipped: false,
-				image: '../../resources/magicorb.jpg',
-			},
-		],
+		items: [],
+		error: null,
+		loading: true,
 	}
 
 	// state allows us to access state and dispatch allows for the sending of objects to our reducer
@@ -47,15 +25,49 @@ const ItemState = (props) => {
 
 	// ACTIONS
 
+	// GET ITEMS
+	const getItems = async () => {
+		try {
+			const res = await axios.get('/api/items')
+			console.log(res.data)
+			dispatch({ type: GET_ITEMS, payload: res.data })
+		} catch (err) {
+			dispatch({ type: ITEM_ERROR, payload: err.response.msg })
+		}
+	}
+
 	// add item
-	const addItem = (item) => {
-		item.id = uuidv4()
-		dispatch({ type: ADD_ITEM, payload: item })
+	const addItem = async (item) => {
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		}
+
+		try {
+			const res = await axios.post('/api/items', item, config)
+			console.log(res.data)
+			dispatch({ type: ADD_ITEM, payload: res.data })
+		} catch (err) {
+			dispatch({ type: ITEM_ERROR, payload: err.response.msg })
+		}
 	}
+
 	// delete item
-	const deleteItem = (id) => {
-		dispatch({ type: DELETE_ITEM, payload: id })
+	const deleteItem = async (_id) => {
+		try {
+			const res = await axios.delete(`/api/items/${_id}`)
+			console.log(res.data)
+			dispatch({ type: DELETE_ITEM, payload: _id })
+		} catch (err) {
+			dispatch({ type: ITEM_ERROR, payload: err.response.msg })
+		}
 	}
+
+	// const clearItems = () => {
+	// 	dispatch({ type: CLEAR_ITEMS })
+	// }
+
 	// used for setting the current items to a new state for editing, then sent to reducer for action.
 	// set current item
 	// clear current item
@@ -73,8 +85,12 @@ const ItemState = (props) => {
 		<ItemContext.Provider
 			value={{
 				items: state.items,
+				error: state.error,
+				loading: state.loading,
 				addItem,
 				deleteItem,
+				getItems,
+
 				// equipItem,
 			}}
 		>

@@ -1,11 +1,9 @@
 import {
 	ADD_ITEM,
 	DELETE_ITEM,
-	SET_CURRENT,
-	CLEAR_CURRENT,
+	ITEM_ERROR,
+	GET_ITEMS,
 	EQUIP_ITEM,
-	FILTER_ITEMS,
-	CLEAR_FILTER,
 } from '../types.js'
 
 export default (state, action) => {
@@ -14,12 +12,19 @@ export default (state, action) => {
 			return {
 				...state,
 				items: [...state.items, action.payload],
+				loading: false,
 			}
-
+		case GET_ITEMS:
+			return {
+				...state,
+				items: action.payload,
+				loading: false,
+			}
 		case DELETE_ITEM:
 			return {
 				...state,
-				items: state.items.filter((item) => item.id !== action.payload),
+				items: state.items.filter((item) => item._id !== action.payload),
+				loading: false,
 			}
 
 		// not working, need to look at. If desperate use current state etc.
@@ -41,7 +46,12 @@ export default (state, action) => {
 		// 			}
 		// 		}),
 		// 	}
-
+		case ITEM_ERROR:
+			return {
+				...state,
+				error: action.payload,
+				loading: false,
+			}
 		default:
 			return state
 	}

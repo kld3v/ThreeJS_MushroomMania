@@ -15,7 +15,7 @@ const Login = () => {
 			clearErrors()
 		}
 		// eslint-disable-next-line
-	}, [error])
+	}, [error, setAlert, isAuthenticated])
 
 	const [player, setPlayer] = useState({
 		name: '',

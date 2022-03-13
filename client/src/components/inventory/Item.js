@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import ItemContext from '../../context/Item/itemContext'
 
 const Item = ({ item }) => {
-	const { id, name, material, value, equipped, image } = item
+	const { _id, name, material, value, equipped, image } = item
 
 	const itemContext = useContext(ItemContext)
 	const { deleteItem } = itemContext
 
 	const onDelete = () => {
-		deleteItem(id)
+		deleteItem(_id)
 	}
 
 	// const onEquip = () => {

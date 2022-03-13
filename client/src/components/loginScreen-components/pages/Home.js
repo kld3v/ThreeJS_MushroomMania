@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
+
 import Inventory from '../../inventory/Inventory.js'
 import AuthContext from '../../../context/auth/authContext'
 const Home = () => {

@@ -7,6 +7,7 @@ import {
 	LOGIN_FAIL,
 	LOGOUT,
 	CLEAR_ERRORS,
+	CLEAR_ITEMS,
 } from '../types.js'
 
 const authReducer = (state, action) => {
@@ -39,6 +40,13 @@ const authReducer = (state, action) => {
 				loading: false,
 				player: null,
 				error: action.payload,
+			}
+		case CLEAR_ITEMS:
+			return {
+				...state,
+				items: [],
+				error: null,
+				loading: false,
 			}
 		case CLEAR_ERRORS:
 			return {
