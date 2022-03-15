@@ -2,6 +2,9 @@
 	"name": "eldiaapi",
 	"version": "1.0.0",
 	"description": "Backend for eldia 3d world",
+	"engines": {
+		"node": "16.x"
+	},
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
