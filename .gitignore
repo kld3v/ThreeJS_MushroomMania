@@ -1,7 +1,6 @@
 node_modules/
 Client_nonReact/
 
-/client/build
 
 .DS_Store
 /client/.env.local
