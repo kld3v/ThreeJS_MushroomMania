@@ -21,7 +21,6 @@ export default class World {
 		this.box = new Box()
 		// this.resources.on('ready', () => {
 		// 	// Setup
-		// 	this.environment = new Environment()
 		// 	// this.landscape = new Landscape()
 		// 	// this.BasicTreeM = new BasicTreeM()
 		// 	// this.basicTreeL = new BasicTreeL()
