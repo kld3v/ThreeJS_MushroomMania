@@ -18,6 +18,7 @@ export default class World {
 		// Wait for resources
 		this.environment = new Environment()
 		this.box = new Box()
+		this.box = new Box()
 		// this.resources.on('ready', () => {
 		// 	// Setup
 		// 	this.environment = new Environment()
