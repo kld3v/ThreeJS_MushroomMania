@@ -4,8 +4,6 @@ import './App.css'
 import { Fragment } from 'react'
 import Home from './components/loginScreen-components/pages/Home.js'
 import About from './components/loginScreen-components/pages/About.js'
-import { Canvas } from '@react-three/fiber'
-import Experience from './components/game-components/Experience.js'
 
 import ItemState from './context/Item/ItemState'
 import AuthState from './context/auth/AuthState'
@@ -34,14 +32,14 @@ const App = () => {
 								<Routes>
 									<Route path='/' element={<PrivateRoute component={Home} />} />
 									<Route path='/about' element={<About />} />
-									<Route
+									{/* <Route
 										path='/experience'
 										element={
 											<Canvas>
 												<Experience />
 											</Canvas>
 										}
-									/>
+									/> */}
 									<Route path='/register' element={<Register />} />
 									<Route path='/login' element={<Login />} />
 								</Routes>
