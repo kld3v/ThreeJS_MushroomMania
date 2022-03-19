@@ -1,15 +1,10 @@
 import React from 'react'
 // import Inventory from '../../inventory/Inventory.js'
+import Experience from '../../../Experience/Experience.js'
 
 const Home = () => {
-	return (
-		<div className='grid-4'>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	)
+	const experience = new Experience(document.querySelector('canvas.webgl'))
+	return <div></div>
 }
 
 export default Home
