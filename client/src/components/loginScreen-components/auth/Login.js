@@ -18,7 +18,6 @@ const Login = () => {
 	}, [error, setAlert, isAuthenticated])
 
 	const [player, setPlayer] = useState({
-		name: '',
 		email: '',
 		password: '',
 	})
@@ -58,8 +57,6 @@ const Login = () => {
 			</h1>
 			<form onSubmit={onSubmit}>
 				<div className='form-group'>
-					<label htmlFor='name'> Username</label>
-					<input type='text' name='name' value={name} onChange={onChange} />
 					<label htmlFor='email'> Email</label>
 					<input type='email' name='email' value={email} onChange={onChange} />
 					<label htmlFor='password'> Password</label>

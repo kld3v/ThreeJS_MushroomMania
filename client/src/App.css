@@ -16,6 +16,17 @@
 }
 
 body {
+	overflow: hidden;
+}
+
+.webgl {
+	position: fixed;
+	top: 0;
+	left: 0;
+	outline: none;
+}
+
+body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 	line-height: 1.6;
