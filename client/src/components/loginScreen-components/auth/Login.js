@@ -10,7 +10,7 @@ const Login = () => {
 	const { loginPlayer, error, clearErrors, isAuthenticated } = authContext
 
 	useEffect(() => {
-		if (error === 'invalid credentials') {
+		if (error === 'Invalid Credentials') {
 			setAlert(error, 'danger')
 			clearErrors()
 		}

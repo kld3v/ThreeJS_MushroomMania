@@ -7,7 +7,7 @@ export default class Box {
 		this.scene = this.experience.scene
 		console.log('box instantiated')
 
-		this.material = new THREE.MeshBasicMaterial()
+		this.material = new THREE.MeshBasicMaterial({ color: 'red' })
 		this.geometry = new THREE.BoxGeometry(1, 1, 1)
 
 		this.setBox()

@@ -44,14 +44,14 @@ router.post(
 			let player = await Player.findOne({ email })
 
 			if (!player) {
-				return res.status(400).json({ msg: 'invalid credentials' })
+				return res.status(400).json({ msg: 'Invalid Credentials' })
 			}
 
 			// will return true or false depending on whether the passwords match
 			const isMatch = await bcrypt.compare(password, player.password)
 
 			if (!isMatch) {
-				res.status(400).json({ msg: 'invalid credientials' })
+				res.status(400).json({ msg: 'Invalid Credentials' })
 			}
 
 			const payload = {
