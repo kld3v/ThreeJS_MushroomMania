@@ -73,6 +73,13 @@ module.exports = {
 				exclude: /node_modules/,
 				use: ['raw-loader', 'glslify-loader'],
 			},
+			//JSX
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel-loader',
+				options: { presets: ['@babel/env', '@babel/preset-react'] },
+			},
 		],
 	},
 }
