@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 // import Inventory from '../../inventory/Inventory.js'
 import Experience from '../../../Experience/Experience.js'
 import AuthContext from '../../../context/auth/authContext.js'
