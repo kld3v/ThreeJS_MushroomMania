@@ -1,9 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../Experience'
-import PortalMaterial from './shaderMaterials/PortalWaves.js'
-import LakeMaterial from './shaderMaterials/LakeMaterial.js'
-import SunMaterial from './shaderMaterials/SunMaterial.js'
-import Raycaster from '../Utils/Raycaster.js'
+
 export default class Greyfield {
 	constructor() {
 		console.log('Greyfield model instantiated!')
@@ -16,16 +13,8 @@ export default class Greyfield {
 
 		// Resource for landscape
 		this.resource = this.resources.items.Greyfield
-		this.bakedTexture = this.resources.items.bakedTexture
-		this.bakedTexture.flipY = false
-		this.bakedTexture.encoding = THREE.sRGBEncoding
-		this.bakedMaterial = new THREE.MeshBasicMaterial({ map: this.bakedTexture })
 
 		console.log(this.resource)
-		/// shaderMaterials
-		// this.portalMaterial = new PortalMaterial()
-		// this.lakeMaterial = new LakeMaterial()
-		// this.sunMaterial = new SunMaterial()
 
 		// debug
 		this.debug = this.experience.debug
@@ -37,41 +26,17 @@ export default class Greyfield {
 		}
 		// Methods
 		this.setModel()
-
-		// set up raycaster
 	}
 
 	setModel() {
 		this.model = this.resource.scene
-		this.model.scale.set(20, 20, 20)
-		this.model.position.x = -140
-		this.model.position.y = -300
-		this.model.position.z = 487
+		this.model.scale.set(1, 1, 1)
 
 		console.log(this.model)
-		this.model.children[1].material = this.bakedMaterial
+		// this.model.children[1].material = this.bakedMaterial
 		this.scene.add(this.model)
 
-		// 	/// add portal material to portals of scene
-		// 	this.portalMeshEntrance = this.model.children.find(
-		// 		(child) => child.name === 'Circle'
-		// 	)
-		// 	this.portalMeshEntrance.material = this.portalMaterial.material
-
-		// 	this.portalMeshExit = this.model.children.find(
-		// 		(child) => child.name === 'Circle001'
-		// 	)
-		// 	this.portalMeshExit.material = this.portalMaterial.material
-
-		// 	/// Add material to lake
-		// 	this.lakeMesh = this.model.children.find(
-		// 		(child) => child.name === 'Landscape_plane001'
-		// 	)
-		// 	this.lakeMesh.material = this.lakeMaterial.material
-
-		// 	/// Add material to sun
-		// 	this.sunMesh = this.model.children.find((child) => child.name === 'sun')
-		// 	this.sunMesh.material = this.sunMaterial.material
+		/// add portal material to portals of scene
 
 		if (this.debug.active) {
 			this.debugFolder
@@ -129,15 +94,10 @@ export default class Greyfield {
 	}
 
 	update() {
-		// this.portalMaterial.update()
-		// this.lakeMaterial.update()
-		// this.sunMaterial.update()
 		if (this.debug.active) {
 			if (this.debugObject.allowRaycaster) {
 				this.raycaster.update()
 			}
 		}
-
-		// this.camera.updatePlayerHeight()
 	}
 }
