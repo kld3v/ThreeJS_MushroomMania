@@ -1,26 +1,26 @@
 export default [
-	{
-		name: 'environmentMapTexture',
-		type: 'cubeTexture',
-		path: [
-			'textures/environmentMap/px.png',
-			'textures/environmentMap/nx.png',
-			'textures/environmentMap/py.png',
-			'textures/environmentMap/ny.png',
-			'textures/environmentMap/pz.png',
-			'textures/environmentMap/nz.png',
-		],
-	},
+	// {
+	// 	name: 'environmentMapTexture',
+	// 	type: 'cubeTexture',
+	// 	path: [
+	// 		'textures/environmentMap/px.png',
+	// 		'textures/environmentMap/nx.png',
+	// 		'textures/environmentMap/py.png',
+	// 		'textures/environmentMap/ny.png',
+	// 		'textures/environmentMap/pz.png',
+	// 		'textures/environmentMap/nz.png',
+	// 	],
+	// },
 	{
 		name: 'Greyfield',
 		type: 'gltfModel',
-		path: 'models/Greyfield/mare foliorum 1.1.3_split patches again.glb',
+		path: 'static/models/Landscape/forestMerged.glb',
 	},
-	// {
-	// 	name: 'bakedTexture',
-	// 	type: 'texture',
-	// 	path: 'models/Landscape/BAKED.jpg',
-	// },
+	{
+		name: 'bakedTexture',
+		type: 'texture',
+		path: 'static/models/Landscape/BAKED.jpg',
+	},
 	// {
 	// 	name: 'BasicTreeM',
 	// 	type: 'gltfModel',

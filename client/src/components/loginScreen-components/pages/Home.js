@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom'
 const Home = () => {
 	const authContext = useContext(AuthContext)
 	const { isAuthenticated } = authContext
-	if (!isAuthenticated) return <Navigate to='/login' />
+	// if (!isAuthenticated) return <Navigate to='/login' />
 
 	const experience = new Experience(document.querySelector('canvas.webgl'))
 	return (

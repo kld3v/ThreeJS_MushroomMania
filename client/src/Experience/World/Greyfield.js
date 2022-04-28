@@ -10,17 +10,18 @@ export default class Greyfield {
 
 		this.experience = new Experience()
 		this.scene = this.experience.scene
-		// this.resources = this.experience.resources
+		this.resources = this.experience.resources
 		this.time = this.experience.time
 		this.camera = this.experience.camera
 
 		// Resource for landscape
-		// this.resource = this.resources.items.Greyfield
-		// this.bakedTexture = this.resources.items.bakedTexture
-		// this.bakedTexture.flipY = false
-		// this.bakedTexture.encoding = THREE.sRGBEncoding
-		// this.bakedMaterial = new THREE.MeshBasicMaterial({ map: this.bakedTexture })
+		this.resource = this.resources.items.Greyfield
+		this.bakedTexture = this.resources.items.bakedTexture
+		this.bakedTexture.flipY = false
+		this.bakedTexture.encoding = THREE.sRGBEncoding
+		this.bakedMaterial = new THREE.MeshBasicMaterial({ map: this.bakedTexture })
 
+		console.log(this.resource)
 		/// shaderMaterials
 		// this.portalMaterial = new PortalMaterial()
 		// this.lakeMaterial = new LakeMaterial()
@@ -38,10 +39,6 @@ export default class Greyfield {
 		this.setModel()
 
 		// set up raycaster
-		this.raycaster = new Raycaster(
-			this.model,
-			this.camera.controls.getObject().position
-		)
 	}
 
 	setModel() {
@@ -52,7 +49,7 @@ export default class Greyfield {
 		this.model.position.z = 487
 
 		console.log(this.model)
-		// this.model.children[1].material = this.bakedMaterial
+		this.model.children[1].material = this.bakedMaterial
 		this.scene.add(this.model)
 
 		// 	/// add portal material to portals of scene

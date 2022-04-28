@@ -4,6 +4,7 @@ import Environment from './Environment.js'
 // import Landscape from './Landscape.js'
 // import BasicTreeM from './Plants/BasicTreeM'
 // import BasicTreeL from './Plants/BasicTreeL'
+import Greyfield from './Greyfield'
 import Box from './Box.js'
 
 export default class World {
@@ -12,19 +13,19 @@ export default class World {
 
 		this.experience = new Experience()
 		this.scene = this.experience.scene
-		// this.resources = this.experience.resources
+		this.resources = this.experience.resources
 
 		// this.fireFlies = new FireFlies()
 		// Wait for resources
 		this.environment = new Environment()
-		this.box = new Box()
-		// this.resources.on('ready', () => {
-		// 	// Setup
-		// 	// this.landscape = new Landscape()
-		// 	// this.BasicTreeM = new BasicTreeM()
-		// 	// this.basicTreeL = new BasicTreeL()
-		// 	// this.greyfield = new Greyfield()
-		// })
+
+		this.resources.on('ready', () => {
+			// Setup
+			// this.landscape = new Landscape()
+			// this.BasicTreeM = new BasicTreeM()
+			// this.basicTreeL = new BasicTreeL()
+			this.greyfield = new Greyfield()
+		})
 	}
 
 	update() {
