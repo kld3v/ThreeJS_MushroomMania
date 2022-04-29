@@ -20,9 +20,7 @@ export default class Greyfield {
 		this.debug = this.experience.debug
 		if (this.debug.active) {
 			this.debugFolder = this.debug.ui.addFolder('landscape')
-			this.debugObject = {
-				allowRaycaster: true,
-			}
+			this.debugObject = {}
 		}
 		// Methods
 		this.setModel()
@@ -86,18 +84,10 @@ export default class Greyfield {
 				.max(500)
 				.step(5)
 		}
-		if (this.debug.active) {
-			this.debugFolder
-				.add(this.debugObject, 'allowRaycaster')
-				.name('allow raycaster?')
-		}
 	}
 
 	update() {
 		if (this.debug.active) {
-			if (this.debugObject.allowRaycaster) {
-				this.raycaster.update()
-			}
 		}
 	}
 }

@@ -1,8 +1,6 @@
 import Experience from '../Experience.js'
 import Environment from './Environment.js'
-
 import Greyfield from './Greyfield'
-import Box from './Box.js'
 
 export default class World {
 	constructor() {
@@ -13,10 +11,8 @@ export default class World {
 		this.resources = this.experience.resources
 
 		// Wait for resources
-
 		this.resources.on('ready', () => {
 			// Setup
-
 			this.greyfield = new Greyfield()
 			this.environment = new Environment()
 		})

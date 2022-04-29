@@ -32,14 +32,6 @@ const App = () => {
 								<Routes>
 									<Route path='/' element={<PrivateRoute component={Home} />} />
 									<Route path='/about' element={<About />} />
-									{/* <Route
-										path='/experience'
-										element={
-											<Canvas>
-												<Experience />
-											</Canvas>
-										}
-									/> */}
 									<Route path='/register' element={<Register />} />
 									<Route path='/login' element={<Login />} />
 								</Routes>
