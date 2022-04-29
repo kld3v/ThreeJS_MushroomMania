@@ -1,7 +1,7 @@
 {
 	"name": "eldiaapi",
 	"version": "1.0.0",
-	"description": "Backend for eldia 3d world",
+	"description": "Backend for Eldia 3d MMORPG",
 	"engines": {
 		"node": "16.x"
 	},

@@ -28,8 +28,8 @@ export default class Greyfield {
 
 	setModel() {
 		this.model = this.resource.scene
-		this.model.scale.set(1, 1, 1)
-
+		this.model.scale.set(10, 10, 10)
+		this.model.position.set(24.604, -23, -210.74)
 		console.log(this.model)
 		// this.model.children[1].material = this.bakedMaterial
 		this.scene.add(this.model)
