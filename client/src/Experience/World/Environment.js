@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
-
+import Fox from './characters/TestCharacter'
 export default class Environment {
 	constructor() {
 		console.log('environment instantiated!')
@@ -16,7 +16,19 @@ export default class Environment {
 			this.debugFolder = this.debug.ui.addFolder('environment')
 		}
 
-		this.setEnvironmentMap()
+		// this.setEnvironmentMap()
+		// this.setDirectionLight()
+		this.setHemisphereLight()
+	}
+
+	setHemisphereLight() {
+		this.light = new THREE.HemisphereLight('white', 'red', 10)
+		this.scene.add(this.light)
+	}
+	setDirectionLight() {
+		this.light = new THREE.DirectionalLight('white', 10)
+		this.light.lookAt(0, 0, 0)
+		this.scene.add(this.light)
 	}
 
 	setEnvironmentMap() {

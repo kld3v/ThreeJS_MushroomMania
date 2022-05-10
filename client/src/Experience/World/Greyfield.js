@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../Experience'
-
+import TestCharacter from './characters/TestCharacter'
 export default class Greyfield {
 	constructor() {
 		console.log('Greyfield model instantiated!')
@@ -10,7 +10,7 @@ export default class Greyfield {
 		this.resources = this.experience.resources
 		this.time = this.experience.time
 		this.camera = this.experience.camera
-
+		this.testCharacter = new TestCharacter()
 		// Resource for landscape
 		this.resource = this.resources.items.Greyfield
 
@@ -23,14 +23,28 @@ export default class Greyfield {
 			this.debugObject = {}
 		}
 		// Methods
-		this.setModel()
+		// this.setModel()
+		this.setTempTerrain()
+	}
+
+	setTempTerrain() {
+		// add temporary setting to scene
+		this.floor = new THREE.Mesh(
+			new THREE.PlaneGeometry(4000, 4000),
+			new THREE.MeshPhongMaterial({ color: 0x991111, depthWrite: false })
+		)
+		this.floor.rotation.x = -Math.PI / 2
+		this.floor.receiveShadow = true
+		this.scene.add(this.floor)
+		this.light = new THREE.HemisphereLight('white', 'red', 10)
+		this.scene.add(this.light)
 	}
 
 	setModel() {
 		this.model = this.resource.scene
 		this.model.scale.set(10, 10, 10)
 		this.model.position.set(24.604, -23, -210.74)
-		console.log(this.model)
+
 		// this.model.children[1].material = this.bakedMaterial
 		this.scene.add(this.model)
 
@@ -89,5 +103,6 @@ export default class Greyfield {
 	update() {
 		if (this.debug.active) {
 		}
+		// this.testCharacter.animate()
 	}
 }

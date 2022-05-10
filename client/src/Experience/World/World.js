@@ -19,7 +19,9 @@ export default class World {
 	}
 
 	update() {
-		if (this.greyfield) this.greyfield.update()
+		if (this.greyfield) {
+			this.greyfield.update()
+		}
 	}
 
 	resize() {}
