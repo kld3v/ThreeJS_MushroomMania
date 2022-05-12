@@ -24,22 +24,23 @@ export default class Greyfield {
 		}
 		// Methods
 
-		this.setModel()
-		// this.setTempTerrain()
+		// this.setModel()
+		this.setTempTerrain()
 	}
 
 	setTempTerrain() {
 		// add temporary setting to scene
 		this.floor = new THREE.Mesh(
-			new THREE.PlaneGeometry(4000, 4000),
-			new THREE.MeshPhongMaterial({ color: 0x991111, depthWrite: false })
+			new THREE.PlaneGeometry(4000, 4000, 50, 50),
+			new THREE.MeshBasicMaterial({
+				color: 0xffffff,
+				depthWrite: false,
+				wireframe: true,
+			})
 		)
 		this.floor.rotation.x = -Math.PI / 2
 		this.floor.receiveShadow = true
 		this.scene.add(this.floor)
-		this.light = new THREE.HemisphereLight('red', 'white', 10)
-
-		this.scene.add(this.light)
 	}
 
 	setModel() {

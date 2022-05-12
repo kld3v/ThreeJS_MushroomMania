@@ -18,9 +18,14 @@ export default class Environment {
 
 		// this.setEnvironmentMap()
 		// this.setDirectionLight()
-		this.setHemisphereLight()
+		// this.setHemisphereLight()
+		this.setAmbientLight()
 	}
 
+	setAmbientLight() {
+		this.light = new THREE.AmbientLight(0xffffff, 4)
+		this.scene.add(this.light)
+	}
 	setHemisphereLight() {
 		this.light = new THREE.HemisphereLight('white', 'red', 10)
 		this.scene.add(this.light)

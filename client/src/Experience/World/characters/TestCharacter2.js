@@ -9,7 +9,6 @@ export default class TestCharacter {
 		this.camera = this.experience.camera.instance
 		this.resources = this.experience.resources
 		this.resource = this.resources.items.TestCharacter
-		this.resourceTexture = this.resources.items.TestCharacterTexture
 		this.time = this.experience.time
 
 		this._mixers = []

@@ -11,11 +11,11 @@ export default [
 			'static/textures/environmentMap/nz.png',
 		],
 	},
-	{
-		name: 'Greyfield',
-		type: 'gltfModel',
-		path: 'static/models/Greyfield/land.glb',
-	},
+	// {
+	// 	name: 'Greyfield',
+	// 	type: 'gltfModel',
+	// 	path: 'static/models/Greyfield/land.glb',
+	// },
 	// characters
 	// {
 	// 	name: 'TestCharacter',
@@ -32,9 +32,4 @@ export default [
 	// 	type: 'FBXModel',
 	// 	path: 'static/assets/fbx/anims/Walking.fbx',
 	// },
-	{
-		name: 'FoxTest',
-		type: 'gltfModel',
-		path: 'static/models/Fox/glTF/fox.gltf',
-	},
 ]
