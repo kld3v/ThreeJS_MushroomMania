@@ -1,19 +1,19 @@
 import * as THREE from 'three'
 import Experience from '../Experience'
-import TestCharacter from './characters/TestCharacter'
+import TestCharacter2 from './characters/TestCharacter2'
 export default class Greyfield {
 	constructor() {
 		console.log('Greyfield model instantiated!')
-
 		this.experience = new Experience()
 		this.scene = this.experience.scene
 		this.resources = this.experience.resources
 		this.time = this.experience.time
 		this.camera = this.experience.camera
-		this.testCharacter = new TestCharacter()
+		this.testCharacter = new TestCharacter2()
+
 		// Resource for landscape
 		this.resource = this.resources.items.Greyfield
-
+		// need to get rid of 400 leaf meshes with new blender model
 		console.log(this.resource)
 
 		// debug
@@ -23,6 +23,7 @@ export default class Greyfield {
 			this.debugObject = {}
 		}
 		// Methods
+
 		// this.setModel()
 		this.setTempTerrain()
 	}
@@ -36,7 +37,8 @@ export default class Greyfield {
 		this.floor.rotation.x = -Math.PI / 2
 		this.floor.receiveShadow = true
 		this.scene.add(this.floor)
-		this.light = new THREE.HemisphereLight('white', 'red', 10)
+		this.light = new THREE.HemisphereLight('red', 'white', 10)
+
 		this.scene.add(this.light)
 	}
 
