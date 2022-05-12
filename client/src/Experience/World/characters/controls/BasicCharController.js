@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import BasicCharacterControllerInput from './BasicCharControllerInput.js'
 import BasicCharControlProxy from './BasicCharControlProxy'
 import CharacterFSM from './CharacterFSM.js'
@@ -100,18 +99,18 @@ export default class BasicCharController {
 
 		const acc = this._acceleration.clone()
 		if (this._input._keys.shift) {
-			acc.multiplyScalar(2.0)
+			acc.multiplyScalar(6.0)
 		}
 
-		// if (this._stateMachine._currentState.Name == 'dance') {
+		// if (this._stateMachine._currentState.Name === 'dance') {
 		// 	acc.multiplyScalar(0.0)
 		// }
 
 		if (this._input._keys.forward) {
-			velocity.z += acc.z * timeInSeconds * 10
+			velocity.z += acc.z * timeInSeconds * 3
 		}
 		if (this._input._keys.backward) {
-			velocity.z -= acc.z * timeInSeconds * 10
+			velocity.z -= acc.z * timeInSeconds * 3
 		}
 		if (this._input._keys.left) {
 			_A.set(0, 1, 0)
@@ -141,7 +140,7 @@ export default class BasicCharController {
 		sideways.normalize()
 
 		sideways.multiplyScalar(velocity.x * timeInSeconds)
-		forward.multiplyScalar(velocity.z * timeInSeconds * 10)
+		forward.multiplyScalar(velocity.z * timeInSeconds * 3)
 
 		controlObject.position.add(forward)
 		controlObject.position.add(sideways)
