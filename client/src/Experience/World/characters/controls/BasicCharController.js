@@ -21,6 +21,7 @@ export default class BasicCharController {
 		this._stateMachine = new CharacterFSM(
 			new BasicCharControlProxy(this._animations)
 		)
+		console.log(this._stateMachine)
 
 		this._LoadModels()
 	}
@@ -57,8 +58,17 @@ export default class BasicCharController {
 
 			const loader = new FBXLoader(this._manager)
 			loader.setPath('static/assets/fbx/')
-			loader.load('Idle.fbx', (a) => {
+			loader.load('idle.fbx', (a) => {
 				_OnLoad('idle', a)
+			})
+			loader.load('dance.fbx', (a) => {
+				_OnLoad('dance', a)
+			})
+			loader.load('run.fbx', (a) => {
+				_OnLoad('run', a)
+			})
+			loader.load('walk.fbx', (a) => {
+				_OnLoad('walk', a)
 			})
 		})
 	}
@@ -131,7 +141,7 @@ export default class BasicCharController {
 		sideways.normalize()
 
 		sideways.multiplyScalar(velocity.x * timeInSeconds)
-		forward.multiplyScalar(velocity.z * timeInSeconds)
+		forward.multiplyScalar(velocity.z * timeInSeconds * 10)
 
 		controlObject.position.add(forward)
 		controlObject.position.add(sideways)

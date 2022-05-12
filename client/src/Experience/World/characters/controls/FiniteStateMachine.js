@@ -19,7 +19,7 @@ export default class FiniteStateMachine {
 		}
 		// not sure what the below bit of code does
 		const state = new this._states[name](this)
-		this._currentState = this.state
+		this._currentState = state
 		state.Enter(prevState)
 	}
 

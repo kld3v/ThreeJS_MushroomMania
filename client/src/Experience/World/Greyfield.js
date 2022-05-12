@@ -24,8 +24,8 @@ export default class Greyfield {
 		}
 		// Methods
 
-		// this.setModel()
-		this.setTempTerrain()
+		this.setModel()
+		// this.setTempTerrain()
 	}
 
 	setTempTerrain() {
@@ -44,7 +44,7 @@ export default class Greyfield {
 
 	setModel() {
 		this.model = this.resource.scene
-		this.model.scale.set(10, 10, 10)
+		this.model.scale.set(100, 100, 100)
 		this.model.position.set(24.604, -23, -210.74)
 
 		// this.model.children[1].material = this.bakedMaterial

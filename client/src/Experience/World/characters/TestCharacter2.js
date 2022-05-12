@@ -26,29 +26,6 @@ export default class TestCharacter {
 		this._controls = new BasicCharController(params)
 	}
 
-	_LoadAnimatedModelAndPlay(path, modelFile, animFile, offset) {
-		const loader = new FBXLoader()
-		loader.setPath(path)
-		loader.load(modelFile, (fbx) => {
-			fbx.scale.setScalar(0.1)
-			fbx.traverse((c) => {
-				c.castShadow = true
-			})
-			fbx.position.copy(offset)
-
-			const anim = new FBXLoader()
-			anim.setPath(path)
-			anim.load(animFile, (anim) => {
-				const m = new THREE.AnimationMixer(fbx)
-				this._mixers.push(m)
-				const idle = m.clipAction(anim.animations[0])
-				idle.play()
-			})
-			console.log('playing!')
-			this._scene.add(fbx)
-		})
-	}
-
 	_RAF() {
 		requestAnimationFrame((t) => {
 			if (this._previousRAF === null) {
