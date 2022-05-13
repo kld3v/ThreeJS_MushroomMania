@@ -1,5 +1,4 @@
 import State from './State'
-import * as THREE from 'three'
 
 export default class RunState extends State {
 	constructor(parent) {

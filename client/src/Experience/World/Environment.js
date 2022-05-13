@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
-import Fox from './characters/TestCharacter'
 export default class Environment {
 	constructor() {
 		console.log('environment instantiated!')

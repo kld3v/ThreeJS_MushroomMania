@@ -12,9 +12,7 @@ export default class Greyfield {
 		this.testCharacter = new TestCharacter2()
 
 		// Resource for landscape
-		this.resource = this.resources.items.Greyfield
 		// need to get rid of 400 leaf meshes with new blender model
-		console.log(this.resource)
 
 		// debug
 		this.debug = this.experience.debug
@@ -31,7 +29,7 @@ export default class Greyfield {
 	setTempTerrain() {
 		// add temporary setting to scene
 		this.floor = new THREE.Mesh(
-			new THREE.PlaneGeometry(4000, 4000, 50, 50),
+			new THREE.PlaneGeometry(500, 500, 10, 10),
 			new THREE.MeshBasicMaterial({
 				color: 0xffffff,
 				depthWrite: false,

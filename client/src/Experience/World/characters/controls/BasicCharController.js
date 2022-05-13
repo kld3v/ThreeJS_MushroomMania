@@ -14,6 +14,7 @@ export default class BasicCharController {
 		this._decceleration = new THREE.Vector3(-0.0005, -0.0001, -5.0)
 		this._acceleration = new THREE.Vector3(1, 0.25, 50.0)
 		this._velocity = new THREE.Vector3(0, 0, 0)
+		this._position = new THREE.Vector3()
 
 		this._animations = {}
 		this._input = new BasicCharacterControllerInput()
@@ -29,7 +30,7 @@ export default class BasicCharController {
 		const loader = new FBXLoader()
 		loader.setPath('static/assets/fbx/')
 		loader.load('Mutant.fbx', (fbx) => {
-			fbx.scale.setScalar(1)
+			fbx.scale.setScalar(0.1)
 			fbx.traverse((c) => {
 				c.castShadow = true
 			})
@@ -70,6 +71,16 @@ export default class BasicCharController {
 				_OnLoad('walk', a)
 			})
 		})
+	}
+	get Position() {
+		return this._position
+	}
+
+	get Rotation() {
+		if (!this._target) {
+			return new THREE.Quaternion()
+		}
+		return this._target.quaternion
 	}
 
 	Update(timeInSeconds) {
@@ -145,7 +156,7 @@ export default class BasicCharController {
 		controlObject.position.add(forward)
 		controlObject.position.add(sideways)
 
-		oldPosition.copy(controlObject.position)
+		this._position.copy(controlObject.position)
 
 		if (this._mixer) {
 			this._mixer.update(timeInSeconds)

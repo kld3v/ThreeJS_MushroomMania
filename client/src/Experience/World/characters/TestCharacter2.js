@@ -1,7 +1,6 @@
 import Experience from '../../Experience'
-import * as THREE from 'three'
 import BasicCharController from './controls/BasicCharController'
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
+import ThirdPersonCamera from './controls/ThirdPersonCamera'
 export default class TestCharacter {
 	constructor() {
 		this.experience = new Experience()
@@ -23,6 +22,11 @@ export default class TestCharacter {
 			scene: this.scene,
 		}
 		this._controls = new BasicCharController(params)
+		console.log(this._controls)
+		this._thirdPersonCamera = new ThirdPersonCamera({
+			camera: this.camera,
+			target: this._controls,
+		})
 	}
 
 	_RAF() {
@@ -48,5 +52,7 @@ export default class TestCharacter {
 		if (this._controls) {
 			this._controls.Update(timeElapsedS)
 		}
+
+		this._thirdPersonCamera.Update(timeElapsedS)
 	}
 }
