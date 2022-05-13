@@ -7,6 +7,9 @@ export default class Greyfield {
 		this.experience = new Experience()
 		this.scene = this.experience.scene
 		this.resources = this.experience.resources
+		this.resource = this.resources.items.Greyfield
+
+		console.log(this.resource)
 		this.time = this.experience.time
 		this.camera = this.experience.camera
 		this.testCharacter = new TestCharacter2()
@@ -22,8 +25,8 @@ export default class Greyfield {
 		}
 		// Methods
 
-		// this.setModel()
-		this.setTempTerrain()
+		this.setModel()
+		// this.setTempTerrain()
 	}
 
 	setTempTerrain() {
@@ -43,8 +46,9 @@ export default class Greyfield {
 
 	setModel() {
 		this.model = this.resource.scene
+		console.log(this.model)
 		this.model.scale.set(100, 100, 100)
-		this.model.position.set(24.604, -23, -210.74)
+		this.model.position.set(-257, -500, -500)
 
 		// this.model.children[1].material = this.bakedMaterial
 		this.scene.add(this.model)
