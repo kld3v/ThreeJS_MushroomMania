@@ -6,8 +6,7 @@ export default class TestCharacter {
 		this.experience = new Experience()
 		this.scene = this.experience.scene
 		this.camera = this.experience.camera.instance
-		this.resources = this.experience.resources
-		this.resource = this.resources.items.TestCharacter
+
 		this.time = this.experience.time
 
 		this._mixers = []

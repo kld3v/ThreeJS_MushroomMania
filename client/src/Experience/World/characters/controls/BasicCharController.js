@@ -4,6 +4,7 @@ import BasicCharacterControllerInput from './BasicCharControllerInput.js'
 import BasicCharControlProxy from './BasicCharControlProxy'
 import CharacterFSM from './CharacterFSM.js'
 
+console.log(FBXLoader)
 export default class BasicCharController {
 	constructor(params) {
 		this._Init(params)
@@ -28,8 +29,9 @@ export default class BasicCharController {
 
 	_LoadModels() {
 		const loader = new FBXLoader()
-		loader.setPath('static/assets/fbx/')
-		loader.load('Mutant.fbx', (fbx) => {
+		// loader.setPath('')
+
+		loader.load('static/assets/fbx/Mutant.fbx', (fbx) => {
 			fbx.scale.setScalar(0.1)
 			fbx.traverse((c) => {
 				c.castShadow = true
@@ -59,6 +61,7 @@ export default class BasicCharController {
 			const loader = new FBXLoader(this._manager)
 			loader.setPath('static/assets/fbx/')
 			loader.load('idle.fbx', (a) => {
+				console.log(a, 'idle fbx')
 				_OnLoad('idle', a)
 			})
 			loader.load('dance.fbx', (a) => {
