@@ -7,15 +7,16 @@ export default class Greyfield {
 		this.experience = new Experience()
 		this.scene = this.experience.scene
 		this.resources = this.experience.resources
-		this.resource = this.resources.items.Greyfield
-
-		console.log(this.resource)
+		this.resource = this.resources.items.forest
+		this.bakedTexture = this.resources.items.bakedTexture
 		this.time = this.experience.time
 		this.camera = this.experience.camera
 		this.testCharacter = new TestCharacter2()
 
 		// Resource for landscape
-		// need to get rid of 400 leaf meshes with new blender model
+		this.bakedTexture.flipY = false
+		this.bakedTexture.encoding = THREE.sRGBEncoding
+		this.bakedMaterial = new THREE.MeshBasicMaterial({ map: this.bakedTexture })
 
 		// debug
 		this.debug = this.experience.debug
@@ -47,10 +48,10 @@ export default class Greyfield {
 	setModel() {
 		this.model = this.resource.scene
 		console.log(this.model)
-		this.model.scale.set(100, 100, 100)
-		this.model.position.set(-257, -500, -500)
+		this.model.scale.set(50, 50, 50)
+		this.model.position.set(-257, -10, -500)
 
-		// this.model.children[1].material = this.bakedMaterial
+		this.model.children[1].material = this.bakedMaterial
 		this.scene.add(this.model)
 
 		/// add portal material to portals of scene

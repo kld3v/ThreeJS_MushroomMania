@@ -12,16 +12,42 @@ export default [
 		],
 	},
 	{
-		name: 'Greyfield',
+		name: 'forest',
 		type: 'gltfModel',
-		path: 'static/models/Greyfield/land.glb',
+		path: 'static/models/forestMerged.glb',
 	},
-	// characters
-	// {
-	// 	name: 'TestCharacter',
-	// 	type: 'FBXModel',
-	// 	path: 'static/assets/fbx/people/FireFighter.fbx',
-	// },
+
+	{
+		name: 'bakedTexture',
+		type: 'texture',
+		path: 'static/models/BAKED.jpg',
+	},
+	// character
+	{
+		name: 'Mutant',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/Mutant.fbx',
+	},
+	{
+		name: 'idle',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/idle.fbx',
+	},
+	{
+		name: 'dance',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/dance.fbx',
+	},
+	{
+		name: 'run',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/run.fbx',
+	},
+	{
+		name: 'walk',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/walk.fbx',
+	},
 	// {
 	// 	name: 'TestCharacterTexture',
 	// 	type: 'texture',

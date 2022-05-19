@@ -8,7 +8,6 @@ export default class TestCharacter {
 		this.camera = this.experience.camera.instance
 
 		this.time = this.experience.time
-
 		this._mixers = []
 		this._previousRAF = null
 
@@ -21,7 +20,6 @@ export default class TestCharacter {
 			scene: this.scene,
 		}
 		this._controls = new BasicCharController(params)
-		console.log(this._controls)
 		this._thirdPersonCamera = new ThirdPersonCamera({
 			camera: this.camera,
 			target: this._controls,

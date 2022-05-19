@@ -3,10 +3,17 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
 import BasicCharacterControllerInput from './BasicCharControllerInput.js'
 import BasicCharControlProxy from './BasicCharControlProxy'
 import CharacterFSM from './CharacterFSM.js'
-
-console.log(FBXLoader)
+import Experience from '../../../Experience'
 export default class BasicCharController {
 	constructor(params) {
+		this.experience = new Experience()
+		this.resources = this.experience.resources
+		this.mutant = this.resources.items.Mutant
+		this.idle = this.resources.items.idle
+		this.dance = this.resources.items.dance
+		this.run = this.resources.items.run
+		this.walk = this.resources.items.walk
+
 		this._Init(params)
 	}
 
@@ -22,58 +29,83 @@ export default class BasicCharController {
 		this._stateMachine = new CharacterFSM(
 			new BasicCharControlProxy(this._animations)
 		)
-		console.log(this._stateMachine)
 
 		this._LoadModels()
 	}
 
 	_LoadModels() {
-		const loader = new FBXLoader()
-		// loader.setPath('')
+		// const loader = new FBXLoader()
+		// // loader.setPath('')
 
-		loader.load('static/assets/fbx/Mutant.fbx', (fbx) => {
-			fbx.scale.setScalar(0.1)
-			fbx.traverse((c) => {
-				c.castShadow = true
-			})
-			this._target = fbx
-			console.log(this._target)
-			this._params.scene.add(this._target)
-
-			this._mixer = new THREE.AnimationMixer(this._target)
-
-			this._manager = new THREE.LoadingManager()
-
-			this._manager.onLoad = () => {
-				this._stateMachine.SetState('idle')
-			}
-
-			const _OnLoad = (animName, anim) => {
-				const clip = anim.animations[0]
-				const action = this._mixer.clipAction(clip)
-
-				this._animations[animName] = {
-					clip,
-					action,
-				}
-			}
-
-			const loader = new FBXLoader(this._manager)
-			loader.setPath('static/assets/fbx/')
-			loader.load('idle.fbx', (a) => {
-				console.log(a, 'idle fbx')
-				_OnLoad('idle', a)
-			})
-			loader.load('dance.fbx', (a) => {
-				_OnLoad('dance', a)
-			})
-			loader.load('run.fbx', (a) => {
-				_OnLoad('run', a)
-			})
-			loader.load('walk.fbx', (a) => {
-				_OnLoad('walk', a)
-			})
+		this.mutant.scale.setScalar(0.1)
+		this.mutant.traverse((c) => {
+			c.castShadow = true
 		})
+
+		this._target = this.mutant
+		this._params.scene.add(this._target)
+		this._mixer = new THREE.AnimationMixer(this._target)
+		this._manager = new THREE.LoadingManager()
+
+		const _OnLoad = (animName, anim) => {
+			const clip = anim.animations[0]
+			const action = this._mixer.clipAction(clip)
+
+			this._animations[animName] = {
+				clip,
+				action,
+			}
+		}
+
+		_OnLoad('idle', this.idle)
+		_OnLoad('dance', this.dance)
+		_OnLoad('run', this.run)
+		_OnLoad('walk', this.walk)
+		this._stateMachine.SetState('idle')
+
+		// loader.load('static/assets/fbx/Mutant.fbx', (fbx) => {
+		// 	fbx.scale.setScalar(0.1)
+		// 	fbx.traverse((c) => {
+		// 		c.castShadow = true
+		// 	})
+		// 	this._target = fbx
+		// 	console.log(this._target)
+		// 	this._params.scene.add(this._target)
+
+		// 	this._mixer = new THREE.AnimationMixer(this._target)
+
+		// 	this._manager = new THREE.LoadingManager()
+
+		// 	this._manager.onLoad = () => {
+		// 		this._stateMachine.SetState('idle')
+		// 	}
+
+		// 	const _OnLoad = (animName, anim) => {
+		// 		const clip = anim.animations[0]
+		// 		const action = this._mixer.clipAction(clip)
+
+		// 		this._animations[animName] = {
+		// 			clip,
+		// 			action,
+		// 		}
+		// 	}
+
+		// 	const loader = new FBXLoader(this._manager)
+		// 	loader.setPath('static/assets/fbx/')
+		// 	loader.load('idle.fbx', (a) => {
+		// 		// console.log(a, 'idle fbx')
+		// 		_OnLoad('idle', a)
+		// 	})
+		// 	loader.load('dance.fbx', (a) => {
+		// 		_OnLoad('dance', a)
+		// 	})
+		// 	loader.load('run.fbx', (a) => {
+		// 		_OnLoad('run', a)
+		// 	})
+		// 	loader.load('walk.fbx', (a) => {
+		// 		_OnLoad('walk', a)
+		// 	})
+		// })
 	}
 	get Position() {
 		return this._position
