@@ -50,6 +50,6 @@ export default class TestCharacter {
 			this._controls.Update(timeElapsedS)
 		}
 
-		this._thirdPersonCamera.Update(timeElapsedS)
+		// this._thirdPersonCamera.Update(timeElapsedS)
 	}
 }

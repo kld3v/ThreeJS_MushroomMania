@@ -8,10 +8,10 @@ export default class BasicCharController {
 		this.experience = new Experience()
 		this.resources = this.experience.resources
 		this.mutant = this.resources.items.Mutant
-		this.idle = this.resources.items.idle
-		this.dance = this.resources.items.dance
-		this.run = this.resources.items.run
-		this.walk = this.resources.items.walk
+		// this.idle = this.resources.items.idle
+		// this.dance = this.resources.items.dance
+		// this.run = this.resources.items.run
+		// this.walk = this.resources.items.walk
 
 		this._Init(params)
 	}
@@ -29,9 +29,19 @@ export default class BasicCharController {
 			new BasicCharControlProxy(this._animations)
 		)
 
-		this._LoadModels()
+		// this._LoadModels()
+		this._LoadJustMutant()
 	}
 
+	_LoadJustMutant() {
+		this.mutant.scale.setScalar(0.1)
+		this.mutant.traverse((c) => {
+			c.castShadow = true
+		})
+
+		this._target = this.mutant
+		this._params.scene.add(this._target)
+	}
 	_LoadModels() {
 		// const loader = new FBXLoader()
 		// // loader.setPath('')

@@ -28,26 +28,26 @@ export default [
 		type: 'FBXModel',
 		path: 'static/assets/fbx/Mutant.fbx',
 	},
-	{
-		name: 'idle',
-		type: 'FBXModel',
-		path: 'static/assets/fbx/idle.fbx',
-	},
-	{
-		name: 'dance',
-		type: 'FBXModel',
-		path: 'static/assets/fbx/dance.fbx',
-	},
-	{
-		name: 'run',
-		type: 'FBXModel',
-		path: 'static/assets/fbx/run.fbx',
-	},
-	{
-		name: 'walk',
-		type: 'FBXModel',
-		path: 'static/assets/fbx/walk.fbx',
-	},
+	// {
+	// 	name: 'idle',
+	// 	type: 'FBXModel',
+	// 	path: 'static/assets/fbx/idle.fbx',
+	// },
+	// {
+	// 	name: 'dance',
+	// 	type: 'FBXModel',
+	// 	path: 'static/assets/fbx/dance.fbx',
+	// },
+	// {
+	// 	name: 'run',
+	// 	type: 'FBXModel',
+	// 	path: 'static/assets/fbx/run.fbx',
+	// },
+	// {
+	// 	name: 'walk',
+	// 	type: 'FBXModel',
+	// 	path: 'static/assets/fbx/walk.fbx',
+	// },
 	// {
 	// 	name: 'TestCharacterTexture',
 	// 	type: 'texture',
