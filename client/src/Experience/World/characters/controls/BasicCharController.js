@@ -11,9 +11,9 @@ export default class BasicCharController {
 		console.log('mutant')
 		this.idle = this.resources.items.idle
 		console.log(this.idle, 'idle')
-		// this.dance = this.resources.items.dance
-		// this.run = this.resources.items.run
-		// this.walk = this.resources.items.walk
+		this.dance = this.resources.items.dance
+		this.run = this.resources.items.run
+		this.walk = this.resources.items.walk
 
 		this._Init(params)
 	}
@@ -31,8 +31,8 @@ export default class BasicCharController {
 			new BasicCharControlProxy(this._animations)
 		)
 
-		// this._LoadModels()
-		this._LoadJustMutant()
+		this._LoadModels()
+		// this._LoadJustMutant()
 	}
 
 	_LoadJustMutant() {

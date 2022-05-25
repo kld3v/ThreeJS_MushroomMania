@@ -33,21 +33,21 @@ export default [
 		type: 'FBXModel',
 		path: 'static/assets/fbx/idle74noskin.fbx',
 	},
-	// {
-	// 	name: 'dance',
-	// 	type: 'FBXModel',
-	// 	path: 'static/assets/fbx/dance.fbx',
-	// },
-	// {
-	// 	name: 'run',
-	// 	type: 'FBXModel',
-	// 	path: 'static/assets/fbx/run.fbx',
-	// },
-	// {
-	// 	name: 'walk',
-	// 	type: 'FBXModel',
-	// 	path: 'static/assets/fbx/walk.fbx',
-	// },
+	{
+		name: 'dance',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/dance.fbx',
+	},
+	{
+		name: 'run',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/run.fbx',
+	},
+	{
+		name: 'walk',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/walk.fbx',
+	},
 	// {
 	// 	name: 'TestCharacterTexture',
 	// 	type: 'texture',
