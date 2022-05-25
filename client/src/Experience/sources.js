@@ -31,7 +31,7 @@ export default [
 	{
 		name: 'idle',
 		type: 'FBXModel',
-		path: 'static/assets/fbx/idle.fbx',
+		path: 'static/assets/fbx/idle74noskin.fbx',
 	},
 	// {
 	// 	name: 'dance',
