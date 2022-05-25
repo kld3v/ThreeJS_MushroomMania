@@ -8,7 +8,9 @@ export default class BasicCharController {
 		this.experience = new Experience()
 		this.resources = this.experience.resources
 		this.mutant = this.resources.items.Mutant
-		// this.idle = this.resources.items.idle
+		console.log('mutant')
+		this.idle = this.resources.items.idle
+		console.log(this.idle, 'idle')
 		// this.dance = this.resources.items.dance
 		// this.run = this.resources.items.run
 		// this.walk = this.resources.items.walk

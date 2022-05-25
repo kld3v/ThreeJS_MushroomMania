@@ -28,11 +28,11 @@ export default [
 		type: 'FBXModel',
 		path: 'static/assets/fbx/Mutant.fbx',
 	},
-	// {
-	// 	name: 'idle',
-	// 	type: 'FBXModel',
-	// 	path: 'static/assets/fbx/idle.fbx',
-	// },
+	{
+		name: 'idle',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/idle.fbx',
+	},
 	// {
 	// 	name: 'dance',
 	// 	type: 'FBXModel',
