@@ -4,6 +4,7 @@ import './App.css'
 import { Fragment } from 'react'
 import Home from './components/loginScreen-components/pages/Home.js'
 import About from './components/loginScreen-components/pages/About.js'
+import Chatbox from './components/loginScreen-components/layout/Chatbox.js'
 
 import ItemState from './context/Item/ItemState'
 import AuthState from './context/auth/AuthState'
@@ -27,6 +28,7 @@ const App = () => {
 					<BrowserRouter>
 						<Fragment>
 							<Navbar />
+							<Chatbox />
 							<div className='container'>
 								<Alert />
 								<Routes>

@@ -10,11 +10,7 @@ const Home = () => {
 	// if (!isAuthenticated) return <Navigate to='/login' />
 
 	const experience = new Experience(document.querySelector('canvas.webgl'))
-	return (
-		<div className='grid-4'>
-			<Inventory></Inventory>
-		</div>
-	)
+	return <div className='grid-4'></div>
 }
 
 export default Home

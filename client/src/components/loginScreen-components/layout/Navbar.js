@@ -13,7 +13,7 @@ const Navbar = ({ title }) => {
 
 	const onLogout = () => {
 		logoutPlayer()
-		clearItems()
+		// clearItems()
 	}
 	const authLinks = (
 		<Fragment>
