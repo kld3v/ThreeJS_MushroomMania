@@ -7,7 +7,7 @@ export default class Greyfield {
 		this.experience = new Experience()
 		this.scene = this.experience.scene
 		this.resources = this.experience.resources
-		this.resource = this.resources.items.forest
+		this.resource = this.resources.items.mareFolorum
 		this.bakedTexture = this.resources.items.bakedTexture
 		this.time = this.experience.time
 		this.camera = this.experience.camera
@@ -49,9 +49,10 @@ export default class Greyfield {
 		this.model = this.resource.scene
 		console.log(this.model)
 		this.model.scale.set(50, 50, 50)
-		this.model.position.set(-257, -10, -500)
+		this.model.position.set(-257, -110, -500)
 
 		this.model.children[1].material = this.bakedMaterial
+		this.model.children[2].material = this.bakedMaterial
 		this.scene.add(this.model)
 
 		/// add portal material to portals of scene

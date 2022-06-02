@@ -12,9 +12,9 @@ export default [
 		],
 	},
 	{
-		name: 'forest',
+		name: 'mareFolorum',
 		type: 'gltfModel',
-		path: 'static/models/forestMerged.glb',
+		path: 'static/models/mareFolorum.glb',
 	},
 
 	{
@@ -22,6 +22,7 @@ export default [
 		type: 'texture',
 		path: 'static/models/BAKED.jpg',
 	},
+
 	// character
 	{
 		name: 'Mutant',
