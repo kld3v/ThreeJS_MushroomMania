@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
 /* Global Styles */
 :root {
-	--primary-color: #0a0a61;
-	--dark-color: #333333;
+	--primary-color: #027a22;
+	--dark-color: #aad3ee71;
 	--light-color: #f4f4f4;
 	--danger-color: #dc3545;
 	--success-color: #28a745;
+	--subText-color: #aad3ee;
 }
 
 * {
@@ -28,20 +29,24 @@ body {
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Cinzel', serif;
+	font-weight: 600;
 	font-size: 1rem;
 	line-height: 1.6;
-	background-color: #fff;
-	color: #333;
+	background-image: url('login2.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	color: var(--subText-color);
 }
 
 a {
-	color: var(--primary-color);
+	color: var(--subText-color);
 	text-decoration: none;
 }
 
 a:hover {
-	color: #666;
+	color: #fff;
 }
 
 ul {
@@ -83,6 +88,8 @@ img {
 }
 
 .text-primary {
+	font-family: 'Cinzel', serif;
+	font-weight: 900;
 	color: var(--primary-color);
 }
 
@@ -308,6 +315,7 @@ img {
 /* Forms */
 input {
 	margin: 1.2rem 0;
+	border-radius: 3px;
 }
 
 .form-text {
@@ -373,7 +381,6 @@ table th {
 	padding: 0.7rem 2rem;
 	z-index: 1;
 	width: 100%;
-	border-bottom: solid 1px var(--primary-color);
 	opacity: 0.9;
 	margin-bottom: 1rem;
 }
@@ -383,7 +390,7 @@ table th {
 }
 
 .navbar a {
-	color: #fff;
+	color: var(--subText-color);
 	padding: 0.45rem;
 	margin: 0 0.25rem;
 }

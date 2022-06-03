@@ -41,7 +41,7 @@ const Navbar = ({ title }) => {
 	)
 
 	return (
-		<div className='navbar bg-primary'>
+		<div className='navbar '>
 			<h1>{title}</h1>
 			<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
 		</div>
@@ -53,7 +53,7 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-	title: 'Eldia',
+	title: '',
 }
 
 export default Navbar
