@@ -11,9 +11,10 @@ export default class BasicCharController {
 		console.log('mutant')
 		this.idle = this.resources.items.idle
 		console.log(this.idle, 'idle')
-		this.dance = this.resources.items.dance
+		// this.dance = this.resources.items.dance
 		this.run = this.resources.items.run
 		this.walk = this.resources.items.walk
+		this.attack = this.resources.items.attack
 
 		this._Init(params)
 	}
@@ -69,9 +70,10 @@ export default class BasicCharController {
 		}
 
 		_OnLoad('idle', this.idle)
-		_OnLoad('dance', this.dance)
+		// _OnLoad('dance', this.dance)
 		_OnLoad('run', this.run)
 		_OnLoad('walk', this.walk)
+		_OnLoad('attack', this.attack)
 		this._stateMachine.SetState('idle')
 
 		// loader.load('static/assets/fbx/Mutant.fbx', (fbx) => {

@@ -38,6 +38,8 @@ export default class WalkState extends State {
 		if (input._keys.forward || input._keys.backward) {
 			if (input._keys.shift) {
 				this._parent.SetState('run')
+			} else if (input._keys.space) {
+				this._parent.SetState('attack')
 			}
 			return
 		}

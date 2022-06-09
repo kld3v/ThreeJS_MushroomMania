@@ -34,11 +34,11 @@ export default [
 		type: 'FBXModel',
 		path: 'static/assets/fbx/idle74noskin.fbx',
 	},
-	{
-		name: 'dance',
-		type: 'FBXModel',
-		path: 'static/assets/fbx/dance.fbx',
-	},
+	// {
+	// 	name: 'dance',
+	// 	type: 'FBXModel',
+	// 	path: 'static/assets/fbx/dance.fbx',
+	// },
 	{
 		name: 'run',
 		type: 'FBXModel',
@@ -48,6 +48,11 @@ export default [
 		name: 'walk',
 		type: 'FBXModel',
 		path: 'static/assets/fbx/walk.fbx',
+	},
+	{
+		name: 'attack',
+		type: 'FBXModel',
+		path: 'static/assets/fbx/attack.fbx',
 	},
 	// {
 	// 	name: 'TestCharacterTexture',
