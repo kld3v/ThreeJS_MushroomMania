@@ -3,7 +3,8 @@ import {
 	DELETE_ITEM,
 	ITEM_ERROR,
 	GET_ITEMS,
-	EQUIP_ITEM,
+	// EQUIP_ITEM,
+	HIDE_ITEMS,
 } from '../types.js'
 
 export default (state, action) => {
@@ -26,7 +27,11 @@ export default (state, action) => {
 				items: state.items.filter((item) => item._id !== action.payload),
 				loading: false,
 			}
-
+		case HIDE_ITEMS:
+			return {
+				...state,
+				visible: !state.visible,
+			}
 		// not working, need to look at. If desperate use current state etc.
 		// case EQUIP_ITEM:
 		// 	return {

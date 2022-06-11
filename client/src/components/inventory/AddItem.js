@@ -29,6 +29,7 @@ const AddItem = () => {
 			imagePath: '',
 		})
 	}
+
 	return (
 		<form onSubmit={onSubmit}>
 			<input

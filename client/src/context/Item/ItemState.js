@@ -9,8 +9,9 @@ import {
 	DELETE_ITEM,
 	ITEM_ERROR,
 	GET_ITEMS,
-	EQUIP_ITEM,
-	CLEAR_ITEMS,
+	// EQUIP_ITEM,
+	// CLEAR_ITEMS,
+	HIDE_ITEMS,
 } from '../types.js'
 
 const ItemState = (props) => {
@@ -18,7 +19,7 @@ const ItemState = (props) => {
 		items: [],
 		error: null,
 		loading: true,
-		visble: false,
+		visible: true,
 	}
 
 	// state allows us to access state and dispatch allows for the sending of objects to our reducer
@@ -65,6 +66,10 @@ const ItemState = (props) => {
 		}
 	}
 
+	// hide items
+	const hideItems = () => {
+		dispatch({ type: HIDE_ITEMS })
+	}
 	// const clearItems = () => {
 	// 	dispatch({ type: CLEAR_ITEMS })
 	// }
@@ -92,6 +97,7 @@ const ItemState = (props) => {
 				addItem,
 				deleteItem,
 				getItems,
+				hideItems,
 
 				// equipItem,
 			}}

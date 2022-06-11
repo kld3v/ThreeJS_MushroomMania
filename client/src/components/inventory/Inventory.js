@@ -8,7 +8,7 @@ import Spinner from '../loginScreen-components/layout/Spinner'
 const Inventory = () => {
 	const itemContext = useContext(ItemContext)
 
-	const { items, getItems, loading } = itemContext
+	const { items, getItems, loading, visible } = itemContext
 
 	useEffect(() => {
 		getItems()
@@ -16,12 +16,12 @@ const Inventory = () => {
 		//eslint-disable-next-line
 	}, [])
 
+	console.log(visible)
+	const displayItems = items.map((item) => <Item key={item._id} item={item} />)
 	return (
 		<Fragment>
-			{items !== null && !loading ? <AddItem /> : <Spinner />}
-			{items.map((item) => (
-				<Item key={item._id} item={item} />
-			))}
+			{/* {items !== null && !loading ? <AddItem /> : <Spinner />} */}
+			{visible ? displayItems : null}
 		</Fragment>
 	)
 }

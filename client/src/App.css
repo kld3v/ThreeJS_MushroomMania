@@ -56,6 +56,15 @@ ul {
 img {
 	width: 100%;
 }
+/* Home Screen Game Play */
+
+.backpack {
+	width: 3vw;
+	position: absolute;
+	bottom: 5vw;
+	left: 5vw;
+	cursor: pointer;
+}
 
 /* Utilities */
 .container {
@@ -63,6 +72,8 @@ img {
 	margin: auto;
 	overflow: hidden;
 	padding: 0 2rem;
+
+	/* background: #000; */
 }
 
 /* Text Styles*/
