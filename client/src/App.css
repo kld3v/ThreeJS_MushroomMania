@@ -66,6 +66,39 @@ img {
 	cursor: pointer;
 }
 
+.stats {
+	background: #000;
+	width: 33vw;
+	height: 10vh;
+	position: fixed;
+	left: 5vw;
+	top: 5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#health {
+	width: 100%;
+	height: 10px;
+	/* margin: auto; */
+	background: rgb(255, 0, 0);
+	transform: scaleX(0.1);
+	transform-origin: top left;
+	transition: transform 1s;
+}
+
+#energy {
+	width: 100%;
+	height: 10px;
+	/* margin: auto; */
+	background: rgb(217, 255, 0);
+	transform: scaleX(0.1);
+	transform-origin: top left;
+	transition: transform 1s;
+}
+
 /* Utilities */
 .container {
 	max-width: 1100px;

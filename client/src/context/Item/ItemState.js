@@ -19,7 +19,7 @@ const ItemState = (props) => {
 		items: [],
 		error: null,
 		loading: true,
-		visible: true,
+		visible: false,
 	}
 
 	// state allows us to access state and dispatch allows for the sending of objects to our reducer
