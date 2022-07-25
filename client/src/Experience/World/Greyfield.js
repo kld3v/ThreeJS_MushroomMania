@@ -9,6 +9,8 @@ export default class Greyfield {
 		this.resources = this.experience.resources
 		this.resource = this.resources.items.mareFolorum
 		this.bakedTexture = this.resources.items.bakedTexture
+		// non baked
+		// this.nonBakeResource = this.resources.items.mareFolorumNight
 		this.time = this.experience.time
 		this.camera = this.experience.camera
 		this.testCharacter = new TestCharacter2()
@@ -28,6 +30,7 @@ export default class Greyfield {
 
 		this.setModel()
 		// this.setTempTerrain()
+		// this.setNonBakedModel()
 	}
 
 	setTempTerrain() {

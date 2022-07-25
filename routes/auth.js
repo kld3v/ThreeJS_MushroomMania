@@ -19,6 +19,8 @@ router.get('/', auth, async (req, res) => {
 		res.json(player)
 	} catch (err) {
 		console.error(err.message)
+		console.log(req)
+
 		res.status(500).send('server error')
 	}
 })
