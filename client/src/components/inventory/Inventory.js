@@ -3,7 +3,6 @@ import ItemContext from '../../context/Item/itemContext.js'
 // import dogHair from '../../resources/doghair.jpg'
 import Item from './Item'
 import AddItem from './AddItem'
-import Spinner from '../loginScreen-components/layout/Spinner'
 
 const Inventory = () => {
 	const itemContext = useContext(ItemContext)

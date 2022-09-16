@@ -1,28 +1,32 @@
 import React, { useState, useContext, useEffect } from 'react'
-import AuthContext from '../../../context/auth/authContext'
 import AlertContext from '../../../context/alert/alertContext'
 import { Navigate } from 'react-router-dom'
+import {
+	useAuth,
+	clearErrors,
+	loginPlayer,
+} from '../../../context/auth/AuthState'
 
 const Login = () => {
-	const authContext = useContext(AuthContext)
 	const alertContext = useContext(AlertContext)
 	const { setAlert } = alertContext
-	const { loginPlayer, error, clearErrors, isAuthenticated } = authContext
+
+	const [authState, authDispatch] = useAuth()
+	const { error, isAuthenticated } = authState
 
 	useEffect(() => {
 		if (error === 'Invalid Credentials') {
 			setAlert(error, 'danger')
-			clearErrors()
+			clearErrors(authDispatch)
 		}
-		// eslint-disable-next-line
-	}, [error, setAlert, isAuthenticated])
+	}, [error, setAlert, authDispatch])
 
 	const [player, setPlayer] = useState({
 		email: '',
 		password: '',
 	})
 
-	const { name, email, password } = player
+	const { email, password } = player
 
 	const onChange = (e) => {
 		setPlayer({
@@ -36,22 +40,17 @@ const Login = () => {
 		if (email === '' || password === '') {
 			setAlert('Please enter all fields', 'danger')
 		} else {
-			loginPlayer({
+			loginPlayer(authDispatch, {
 				email,
 				password,
 			})
 		}
 	}
-	// eventually I will want it to take us straight to experience, but some reason I cannot access AuthContext in experience to run loadPlayer, meaning if the user refreshes the page it doesn't keep them logged in. A bug to fix.
 
-	// if (isAuthenticated) return <Navigate to='/experience' />
-
-	// taking us to the home page for now to sort out logout function.
 	if (isAuthenticated) return <Navigate to='/' />
 
 	return (
 		<div className='form-container'>
-			
 			<form onSubmit={onSubmit}>
 				<div className='form-group'>
 					<label htmlFor='email'> Email</label>

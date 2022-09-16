@@ -1,7 +1,7 @@
 {
-	"name": "eldiaapi",
+	"name": "bmmmapi",
 	"version": "1.0.0",
-	"description": "Backend for Eldia 3d MMORPG",
+	"description": "Backend for Big Mama's Mushroom Mania Web Browser Game",
 	"engines": {
 		"node": "16.x"
 	},

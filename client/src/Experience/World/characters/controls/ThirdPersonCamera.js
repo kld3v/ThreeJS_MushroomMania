@@ -36,7 +36,6 @@ export default class ThirdPersonCamera {
 		this._currentLookat.lerp(idealLookat, t)
 
 		this._camera.position.copy(this._currentPosition)
-		// console.log(this._camera.position)
 
 		this._camera.lookAt(this._currentLookat)
 	}

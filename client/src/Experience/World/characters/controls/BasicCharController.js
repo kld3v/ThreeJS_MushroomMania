@@ -22,7 +22,7 @@ export default class BasicCharController {
 	_Init(params) {
 		this._params = params
 		this._decceleration = new THREE.Vector3(-0.0005, -0.0001, -5.0)
-		this._acceleration = new THREE.Vector3(1, 0.25, 50.0)
+		this._acceleration = new THREE.Vector3(1, 0.25, 10.0)
 		this._velocity = new THREE.Vector3(0, 0, 0)
 		this._position = new THREE.Vector3()
 
@@ -49,7 +49,7 @@ export default class BasicCharController {
 		// const loader = new FBXLoader()
 		// // loader.setPath('')
 
-		this.mutant.scale.setScalar(0.1)
+		this.mutant.scale.setScalar(0.06)
 		this.mutant.traverse((c) => {
 			c.castShadow = true
 		})

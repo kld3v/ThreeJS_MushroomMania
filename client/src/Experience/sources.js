@@ -54,14 +54,17 @@ export default [
 		type: 'FBXModel',
 		path: 'static/assets/fbx/attack.fbx',
 	},
-	// {
-	// 	name: 'TestCharacterTexture',
-	// 	type: 'texture',
-	// 	path: 'static/assets/images/SimplePeople_FireFighter_Brown.png',
-	// },
-	// {
-	// 	name: 'Walking',
-	// 	type: 'FBXModel',
-	// 	path: 'static/assets/fbx/anims/Walking.fbx',
-	// },
+
+	// ITEMS
+
+	{
+		name: 'axe',
+		type: 'gltfModel',
+		path: 'static/models/AXEBLENDER.glb',
+	},
+	{
+		name: 'trunk',
+		type: 'texture',
+		path: 'static/models/HD_Trunk.jpg',
+	},
 ]

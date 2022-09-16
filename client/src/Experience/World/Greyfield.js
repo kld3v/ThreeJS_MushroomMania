@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../Experience'
+
 import TestCharacter2 from './characters/TestCharacter2'
 export default class Greyfield {
 	constructor() {
@@ -8,18 +9,18 @@ export default class Greyfield {
 		this.scene = this.experience.scene
 		this.resources = this.experience.resources
 		this.resource = this.resources.items.mareFolorum
-		this.bakedTexture = this.resources.items.bakedTexture
-		// non baked
-		// this.nonBakeResource = this.resources.items.mareFolorumNight
+
 		this.time = this.experience.time
 		this.camera = this.experience.camera
 		this.testCharacter = new TestCharacter2()
 
 		// Resource for landscape
-		this.bakedTexture.flipY = false
-		this.bakedTexture.encoding = THREE.sRGBEncoding
-		this.bakedMaterial = new THREE.MeshBasicMaterial({ map: this.bakedTexture })
 
+		// items
+		this.item = this.resources.items.axe
+		this.trunkTexture = this.resources.items.trunk
+
+		// console.log(this.item)
 		// debug
 		this.debug = this.experience.debug
 		if (this.debug.active) {
@@ -29,8 +30,8 @@ export default class Greyfield {
 		// Methods
 
 		this.setModel()
+		this.addItemsToScene()
 		// this.setTempTerrain()
-		// this.setNonBakedModel()
 	}
 
 	setTempTerrain() {
@@ -54,8 +55,6 @@ export default class Greyfield {
 		this.model.scale.set(50, 50, 50)
 		this.model.position.set(-257, -110, -500)
 
-		this.model.children[1].material = this.bakedMaterial
-		this.model.children[2].material = this.bakedMaterial
 		this.scene.add(this.model)
 
 		/// add portal material to portals of scene
@@ -110,6 +109,24 @@ export default class Greyfield {
 		}
 	}
 
+	addItemsToScene() {
+		this.boxGeometry = new THREE.BoxGeometry(1, 1, 1)
+		this.materialTrunk = new THREE.MeshBasicMaterial({ map: this.trunkTexture })
+
+		for (let i = 0; i < 10; i++) {
+			this.axe = this.item.scene
+			this.axe.children[3].material = this.materialTrunk
+
+			let random = 0.5 - Math.random()
+
+			this.axe.position.set(
+				-271.60593305193817 + random,
+				19.999999999999936,
+				777.533360142042 + random
+			)
+			this.scene.add(this.axe)
+		}
+	}
 	update() {
 		if (this.debug.active) {
 		}

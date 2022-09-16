@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useContext, useEffect } from 'react'
 import axios from 'axios'
 import AuthContext from './authContext'
 import authReducer from './authReducer.js'
@@ -15,6 +15,68 @@ import {
 	CLEAR_ERRORS,
 } from '../types.js'
 
+export const useAuth = () => {
+	const { state, dispatch } = useContext(AuthContext)
+	return [state, dispatch]
+}
+
+// load player
+export const loadPlayer = async (dispatch) => {
+	try {
+		const res = await axios.get('/api/auth')
+		console.log(res)
+		dispatch({ type: PLAYER_LOADED, payload: res.data })
+	} catch (err) {
+		dispatch({ type: AUTH_ERROR })
+	}
+}
+
+// register player
+export const register = async (dispatch, formData) => {
+	try {
+		const res = await axios.post('/api/players', formData)
+		console.log(res)
+		dispatch({
+			type: REGISTER_SUCCESS,
+			payload: res.data,
+		})
+		loadPlayer(dispatch)
+	} catch (err) {
+		dispatch({
+			type: REGISTER_FAIL,
+			payload: err.response.data.msg,
+		})
+	}
+}
+
+// log in player
+export const loginPlayer = async (dispatch, formData) => {
+	try {
+		const res = await axios.post('/api/auth', formData)
+		console.log(res)
+		dispatch({
+			type: LOGIN_SUCCESS,
+			payload: res.data,
+		})
+		loadPlayer(dispatch)
+	} catch (err) {
+		dispatch({
+			type: LOGIN_FAIL,
+			payload: err.response.data.msg,
+		})
+	}
+}
+// logout player
+export const logoutPlayer = (dispatch) => {
+	dispatch({
+		type: LOGOUT,
+	})
+}
+// clear errors
+export const clearErrors = (dispatch) => {
+	dispatch({ type: CLEAR_ERRORS })
+}
+
 const AuthState = (props) => {
 	const initialState = {
 		token: localStorage.getItem('token'),
@@ -24,95 +86,23 @@ const AuthState = (props) => {
 		error: null,
 	}
 
-	// state allows us to access state and dispatch allows for the sending of objects to our reducer
 	const [state, dispatch] = useReducer(authReducer, initialState)
 
-	// load player
-	const loadPlayer = async () => {
-		//@to-do load token in to global header
-		if (localStorage.token) {
-			setAuthToken(localStorage.token)
-			console.log('token logged')
-		}
-		try {
-			const res = await axios.get('/api/auth')
-			console.log(res)
-			dispatch({ type: PLAYER_LOADED, payload: res.data })
-		} catch (err) {
-			dispatch({ type: AUTH_ERROR })
-		}
+	setAuthToken(state.token)
+
+	if (state.loading) {
+		loadPlayer(dispatch)
 	}
 
-	// register player
-	const register = async (formData) => {
-		const config = {
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		}
+	useEffect(() => {
+		setAuthToken(state.token)
+	}, [state.token])
 
-		try {
-			const res = await axios.post('/api/players', formData, config)
-			console.log(res)
-			dispatch({
-				type: REGISTER_SUCCESS,
-				payload: res.data,
-			})
-			loadPlayer()
-		} catch (err) {
-			dispatch({
-				type: REGISTER_FAIL,
-				payload: err.response.data.msg,
-			})
-		}
-	}
-
-	// log in player
-	const loginPlayer = async (formData) => {
-		const config = {
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		}
-
-		try {
-			const res = await axios.post('/api/auth', formData, config)
-			console.log(res)
-			dispatch({
-				type: LOGIN_SUCCESS,
-				payload: res.data,
-			})
-			loadPlayer()
-		} catch (err) {
-			dispatch({
-				type: LOGIN_FAIL,
-				payload: err.response.data.msg,
-			})
-		}
-	}
-	// logout player
-	const logoutPlayer = () => {
-		dispatch({
-			type: LOGOUT,
-		})
-	}
-	// clear errors
-	const clearErrors = () => {
-		dispatch({ type: CLEAR_ERRORS })
-	}
 	return (
 		<AuthContext.Provider
 			value={{
-				token: state.token,
-				isAuthenticated: state.isAuthenticated,
-				loading: state.loading,
-				player: state.player,
-				error: state.error,
-				register,
-				loadPlayer,
-				loginPlayer,
-				logoutPlayer,
-				clearErrors,
+				state: state,
+				dispatch,
 			}}
 		>
 			{props.children}
