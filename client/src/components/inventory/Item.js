@@ -1,43 +1,27 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import ItemContext from '../../context/Item/itemContext'
+import { useItem, deleteItem } from '../../context/Item/ItemState'
 
 const Item = ({ item }) => {
-	const { _id, name, material, value, equipped, image } = item
+	const { _id, name, latin, description } = item
 
-	const itemContext = useContext(ItemContext)
-	const { deleteItem } = itemContext
+	const [state, dispatch] = useItem()
 
 	const onDelete = () => {
-		deleteItem(_id)
+		deleteItem(dispatch, _id)
 	}
-
-	// const onEquip = () => {
-	// 	equipItem(id)
-	// }
 
 	return (
 		<div className='card bg-light'>
-			<h3 className='text-primary text-left'>{name}</h3>
-			<span
-				className={
-					'badge  ' + (equipped === true ? 'badge-success m-5' : 'badge-primary')
-				}
-			>
-				{equipped ? 'Equipped' : 'Not equipped'}
-			</span>
-			<ul className='list'>
-				<li>{material}</li>
-				<li>{value}</li>
-				<li>{image}</li>
-			</ul>
-			<p>
-				<button className='btn btn-dark btn-sm'> Equip</button>
-				<button className='btn btn-danger btn-sm' onClick={onDelete}>
-					{' '}
-					Discard
-				</button>
-			</p>
+			<h3 className='text-primary'>{name}</h3>
+
+			<h5 className='text-secondary'>{latin}</h5>
+
+			<p className='description'>{description}</p>
+
+			<button className='btn btn-danger btn-sm' onClick={onDelete}>
+				Eat
+			</button>
 		</div>
 	)
 }

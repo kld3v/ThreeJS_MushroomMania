@@ -1,17 +1,18 @@
 import React, { useState, useContext } from 'react'
 import ItemContext from '../../context/Item/itemContext'
+import { useItem, addItem } from '../../context/Item/ItemState'
 
 const AddItem = () => {
-	const itemContext = useContext(ItemContext)
+	const [itemState, itemDispatch] = useItem()
 
 	const [item, setItem] = useState({
 		name: '',
-		material: '',
-		value: '',
-		imagePath: '',
+		latin: '',
+		description: '',
+		psychadelic: '',
 	})
 
-	const { name, material, value, imagePath } = item
+	const { name, latin, description, psychadelic } = item
 
 	const onChange = (e) =>
 		setItem({
@@ -21,12 +22,12 @@ const AddItem = () => {
 
 	const onSubmit = (e) => {
 		e.preventDefault()
-		itemContext.addItem(item)
+		addItem(itemDispatch, item)
 		setItem({
 			name: '',
-			material: '',
-			value: '',
-			imagePath: '',
+			latin: '',
+			description: '',
+			psychadelic: '',
 		})
 	}
 
@@ -41,23 +42,23 @@ const AddItem = () => {
 			/>
 			<input
 				type='text'
-				name='material'
-				placeholder='material'
-				value={material}
+				name='latin'
+				placeholder='latin'
+				value={latin}
 				onChange={onChange}
 			/>
 			<input
 				type='text'
-				name='value'
-				value={value}
-				placeholder='value'
+				name='description'
+				value={description}
+				placeholder='description'
 				onChange={onChange}
 			/>
 			<input
 				type='text'
-				name='imagePath'
-				placeholder='imagePath'
-				value={imagePath}
+				name='psychadelic'
+				placeholder='psychadelic'
+				value={psychadelic}
 				onChange={onChange}
 			/>
 			<input type='submit' value='Add Item' className='btn btn-primary btn-sm' />

@@ -98,6 +98,7 @@ const AuthState = (props) => {
 		setAuthToken(state.token)
 	}, [state.token])
 
+	console.log(state.token)
 	return (
 		<AuthContext.Provider
 			value={{

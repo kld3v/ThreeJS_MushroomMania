@@ -1,13 +1,9 @@
 export const GET_ITEMS = 'GET_ITEMS'
-export const CLEAR_ITEMS = 'CLEAR_ITEMS'
-
 export const ADD_ITEM = 'ADD_ITEM'
 export const DELETE_ITEM = 'DELETE_ITEM'
 export const SET_CURRENT = 'SET_CURRENT'
 export const CLEAR_CURRENT = 'CLEAR_CURRENT'
 export const ITEM_ERROR = 'ITEM_ERROR'
-// update item meaning equip item
-export const EQUIP_ITEM = 'EQUIP_ITEM'
 export const FILTER_ITEMS = 'FILTER_ITEMS'
 export const CLEAR_FILTER = 'CLEAR_FILTER'
 export const HIDE_ITEMS = 'HIDE_ITEMS'

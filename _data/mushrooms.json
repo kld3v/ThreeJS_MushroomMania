@@ -1,0 +1,97 @@
+[
+	{
+		"name": "Field Mushroom",
+		"player": "62322b8faba47f33528cde5f",
+		"latin": "Agaricus campestris",
+		"description": "This used to be a very common mushroom but is becoming harder to find due to loss of habitat and chemical sprays used nowadays.",
+		"psychadelic": false
+	},
+	{
+		"name": "Penny Bunn",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Boletus Edulis",
+		"description": "One of the stars of the mushroom world. Easily recognisable among the edible species. Generally seen eight days after rain around late summer to the start of autumn.",
+		"psychadelic": false
+	},
+	{
+		"name": "The Sickener",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Russula emetica ",
+		"description": "Poisonous but will only make you vomit. Common. The Russula family split from other mushrooms, evolutionarily, many years ago and have round cells instead of most other mushrooms which have elongated cells, this gives Russulas the common name Brittlegills as the cells make the mushroom brittle.",
+		"psychadelic": false
+	},
+	{
+		"name": "Horn of Plenty",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Craterellus cornucopioides",
+		"description": "Occasional but usually found in  large groups. They are very hard to spot among the leaf litter until you spot your first one, then if you are lucky, many appear.",
+		"psychadelic": false
+	},
+	{
+		"name": "Fly Agaric",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Amanita muscaria",
+		"description": "A beautiful and photogenic mushroom that it is considered toxic but not deadly.",
+		"psychadelic": true
+	},
+	{
+		"name": "Deathcap",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Amanita phalloides",
+		"description": "The most poisonous mushroom in the UK along with the Destroying Angel.",
+		"psychadelic": false
+	},
+	{
+		"name": "Giant Puffball",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Calvatia gigantea",
+		"description": "The safest mushroom in the UK for novice foragers with the only look-a-like being a football when spotted from afar.",
+		"psychadelic": false
+	},
+	{
+		"name": "Truffle",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Tuber aestivum",
+		"description": "Very hard to find without a female pig or trained dog.",
+		"psychadelic": false
+	},
+	{
+		"name": "Shaggy Inkcap",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Coprinus comatus",
+		"description": "This mushroom is absolutely delicious but has an extremely short shelf life. If you leave one on your table overnight you will come down to a black ink stain in the morning.",
+		"psychadelic": false
+	},
+	{
+		"name": "Golden Waxcap",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Hygrocybe chlorophana",
+		"description": "The Golden Waxcap is fairly common for a waxcap but still uncommon enough to not warrant picking these mushrooms. They can also be easily mistaken for other yellow waxcaps some of which are mildly toxic.",
+		"psychadelic": false
+	},
+	{
+		"name": "Jubilee Waxcap",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Hygrocybe / Gliophorus reginae",
+		"description": "A rare and beautiful mushroom that should only be admired and photographed, never picked. It is a slimy, lilac/pink waxcap so easily identified and left in the field. I’m not sure of the edibility of this mushroom and as it is rare I have placed it in the inedible section.",
+		"psychadelic": false
+	},
+	{
+		"name": "Liberty Cap",
+		"player": "62322b8faba47f33528cde5f",
+
+		"latin": "Psilocybe semilanceata",
+		"description": "This common Autumn mushroom has been illegal to pick, prepare, eat or sell since 2005 as they are now considered a class A drug. Liberty Caps contain the active ingredients psilocybin and psilocin, which can cause hallucinations and in some cases, nausea or vomiting.",
+		"psychadelic": true
+	}
+]

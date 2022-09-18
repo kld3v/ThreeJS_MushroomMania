@@ -1,20 +1,17 @@
-import { Fragment, useContext } from 'react'
+import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import AuthContext from '../../../context/auth/authContext'
-import ItemContext from '../../../context/Item/itemContext'
+import { useAuth, logoutPlayer } from '../../../context/auth/AuthState'
 
 const Navbar = ({ title }) => {
-	const authContext = useContext(AuthContext)
-	const { isAuthenticated, player, logoutPlayer } = authContext
+	const [authState, authDispatch] = useAuth()
 
-	const itemContext = useContext(ItemContext)
-	const { clearItems } = itemContext
+	const { player, isAuthenticated } = authState
 
 	const onLogout = () => {
-		logoutPlayer()
-		clearItems()
+		logoutPlayer(authDispatch)
 	}
+
 	const authLinks = (
 		<Fragment>
 			<li>Hello {player && player.username}</li>

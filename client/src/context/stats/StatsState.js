@@ -6,23 +6,16 @@ import statsReducer from './statsReducer'
 import {
 	BOOST_ENERGY,
 	BOOST_HEALTH,
-	INCREASE_AGILITY,
-	INCREASE_INTELLECT,
-	INCREASE_STRENGTH,
 	DECREASE_ENERGY,
 	DECREASE_HEALTH,
-	DECREASE_AGILITY,
-	DECREASE_INTELLECT,
-	DECREASE_STRENGTH,
 } from '../types'
 
 const StatsState = (props) => {
 	const initialState = {
-		health: 90,
+		level: 1,
+		experience: null,
+		health: 100,
 		energy: 100,
-		agility: 10,
-		strength: 10,
-		intellect: 10,
 	}
 
 	const [state, dispatch] = useReducer(statsReducer, initialState)
@@ -37,11 +30,10 @@ const StatsState = (props) => {
 	return (
 		<StatsContext.Provider
 			value={{
+				level: state.level,
 				health: state.health,
 				energy: state.energy,
-				agility: state.agility,
-				strength: state.strength,
-				intellect: state.intellect,
+				experience: state.experience,
 				boostHealth,
 			}}
 		>

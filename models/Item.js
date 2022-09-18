@@ -9,16 +9,13 @@ const ItemSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	material: {
+	latin: String,
+
+	description: {
 		type: String,
 	},
-	value: {
-		type: String,
-	},
-	equipped: {
-		type: Boolean,
-		default: false,
-	},
+	psychadelic: Boolean,
+
 	dateCollected: {
 		type: Date,
 		default: Date.now,

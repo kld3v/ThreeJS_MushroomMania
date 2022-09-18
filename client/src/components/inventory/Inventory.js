@@ -1,21 +1,20 @@
-import React, { useContext, Fragment, useEffect } from 'react'
-import ItemContext from '../../context/Item/itemContext.js'
-// import dogHair from '../../resources/doghair.jpg'
+import React, { Fragment, useEffect } from 'react'
+import { useItem, getItems } from '../../context/Item/ItemState.js'
+
 import Item from './Item'
-import AddItem from './AddItem'
 
 const Inventory = () => {
-	const itemContext = useContext(ItemContext)
-
-	const { items, getItems, loading, visible } = itemContext
+	const [state, dispatch] = useItem()
+	const { items, visible } = state
 
 	useEffect(() => {
-		getItems()
+		getItems(dispatch)
 
 		//eslint-disable-next-line
-	}, [])
+	}, [dispatch, visible])
 
 	console.log(visible)
+	console.log(items)
 	const displayItems = items.map((item) => <Item key={item._id} item={item} />)
 	return (
 		<Fragment>

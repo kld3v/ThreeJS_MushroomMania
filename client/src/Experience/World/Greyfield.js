@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import Experience from '../Experience'
 
 import TestCharacter2 from './characters/TestCharacter2'
+import ItemAdd from './items/ItemAdd'
 export default class Greyfield {
 	constructor() {
 		console.log('Greyfield model instantiated!')
@@ -17,9 +18,9 @@ export default class Greyfield {
 		// Resource for landscape
 
 		// items
-		this.item = this.resources.items.axe
-		this.trunkTexture = this.resources.items.trunk
-
+		// this.item = this.resources.items.axe
+		// this.trunkTexture = this.resources.items.trunk
+		this.axe = new ItemAdd('axe')
 		// console.log(this.item)
 		// debug
 		this.debug = this.experience.debug
@@ -29,9 +30,9 @@ export default class Greyfield {
 		}
 		// Methods
 
-		this.setModel()
-		this.addItemsToScene()
-		// this.setTempTerrain()
+		// this.setModel()
+		this.addItems()
+		this.setTempTerrain()
 	}
 
 	setTempTerrain() {
@@ -109,24 +110,12 @@ export default class Greyfield {
 		}
 	}
 
-	addItemsToScene() {
-		this.boxGeometry = new THREE.BoxGeometry(1, 1, 1)
-		this.materialTrunk = new THREE.MeshBasicMaterial({ map: this.trunkTexture })
-
+	addItems() {
 		for (let i = 0; i < 10; i++) {
-			this.axe = this.item.scene
-			this.axe.children[3].material = this.materialTrunk
-
-			let random = 0.5 - Math.random()
-
-			this.axe.position.set(
-				-271.60593305193817 + random,
-				19.999999999999936,
-				777.533360142042 + random
-			)
-			this.scene.add(this.axe)
+			this.i = new ItemAdd('axe')
 		}
 	}
+
 	update() {
 		if (this.debug.active) {
 		}

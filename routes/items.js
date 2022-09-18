@@ -23,13 +23,13 @@ router.get('/', auth, async (req, res) => {
 // @desc        add a new item (collect an item)
 // @access      private
 router.post('/', auth, async (req, res) => {
-	const { name, material, value } = req.body
+	const { name, description, psychadelic } = req.body
 
 	try {
 		const newItem = new Item({
 			name,
-			material,
-			value,
+			description,
+			psychadelic,
 			player: req.player.id,
 		})
 
@@ -90,7 +90,7 @@ router.delete('/:id', auth, async (req, res) => {
 
 		await Item.findByIdAndRemove(req.params.id)
 
-		res.json({ msg: 'item deleted' })
+		res.json({ msg: 'Mushroom deleted' })
 	} catch (err) {
 		console.error(error.message)
 		res.status(500).send('Server Error ')

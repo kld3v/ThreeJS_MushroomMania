@@ -34,7 +34,7 @@ body {
 	text-align: center;
 
 	line-height: 1.6;
-	background-image: url('forest.jpg');
+	background-image: url('landing.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -118,7 +118,14 @@ img {
 
 .text-primary {
 	font-family: 'Acme', sans-serif;
-	font-size: 48px;
+	font-size: 20px;
+
+	font-weight: 900;
+	color: var(--primary-color);
+}
+.text-secondary {
+	font-family: 'Acme', sans-serif;
+	font-size: 15px;
 
 	font-weight: 900;
 	color: var(--primary-color);
@@ -145,11 +152,17 @@ img {
 	padding: 1rem;
 	border: #ccc 1px dotted;
 	margin: 0.7rem 0;
+	height: fit-content;
+}
+
+.card .description {
+	font-size: 15px;
 }
 
 /* List */
 .list {
 	margin: 0.5rem 0;
+	font-size: 5px;
 }
 
 .list li {
@@ -223,7 +236,7 @@ img {
 
 .grid-4 {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	grid-gap: 2rem;
 }
 
@@ -235,6 +248,9 @@ img {
 
 .btn {
 	display: inline-block;
+	position: relative;
+
+	bottom: 0px;
 	background: var(--light-color);
 	color: #333;
 	padding: 0.4rem 1.3rem;
@@ -242,6 +258,7 @@ img {
 	border: none;
 	cursor: pointer;
 	margin-right: 0.5rem;
+	margin-top: auto;
 	transition: opacity 0.2s ease-in;
 	outline: none;
 }
@@ -260,6 +277,7 @@ img {
 .btn-sm {
 	padding: 0.3rem 1rem;
 	margin-right: 0.2rem;
+	font-size: 15px;
 }
 
 .badge {
