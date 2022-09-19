@@ -13,9 +13,10 @@ import {
 const StatsState = (props) => {
 	const initialState = {
 		level: 1,
-		experience: null,
+		XP: 0,
 		health: 100,
 		energy: 100,
+		points: 0,
 	}
 
 	const [state, dispatch] = useReducer(statsReducer, initialState)
@@ -33,7 +34,8 @@ const StatsState = (props) => {
 				level: state.level,
 				health: state.health,
 				energy: state.energy,
-				experience: state.experience,
+				XP: state.XP,
+				points: state.points,
 				boostHealth,
 			}}
 		>

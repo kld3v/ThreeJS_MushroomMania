@@ -79,6 +79,14 @@ img {
 	justify-content: space-around;
 	align-items: center;
 }
+.statsList {
+	display: flex;
+	flex-direction: row;
+	font-size: 20px;
+}
+.statsList li {
+	padding: 0px 10px;
+}
 
 #health {
 	width: 100%;

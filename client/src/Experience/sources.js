@@ -3,24 +3,13 @@ export default [
 		name: 'environmentMapTexture',
 		type: 'cubeTexture',
 		path: [
-			'static/textures/environmentMap/px.jpg',
-			'static/textures/environmentMap/nx.jpg',
-			'static/textures/environmentMap/py.jpg',
-			'static/textures/environmentMap/ny.jpg',
-			'static/textures/environmentMap/pz.jpg',
-			'static/textures/environmentMap/nz.jpg',
+			'static/textures/environmentMap/px.png',
+			'static/textures/environmentMap/nx.png',
+			'static/textures/environmentMap/py.png',
+			'static/textures/environmentMap/ny.png',
+			'static/textures/environmentMap/pz.png',
+			'static/textures/environmentMap/nz.png',
 		],
-	},
-	{
-		name: 'mareFolorum',
-		type: 'gltfModel',
-		path: 'static/models/mareFolorum.glb',
-	},
-
-	{
-		name: 'bakedTexture',
-		type: 'texture',
-		path: 'static/models/BAKED.jpg',
 	},
 
 	// character
@@ -58,13 +47,63 @@ export default [
 	// ITEMS
 
 	{
-		name: 'axe',
+		name: 'flyAgaric',
 		type: 'gltfModel',
-		path: 'static/models/AXEBLENDER.glb',
+		path: 'static/models/flyAgaric.glb',
 	},
 	{
-		name: 'trunk',
-		type: 'texture',
-		path: 'static/models/HD_Trunk.jpg',
+		name: 'deathcap',
+		type: 'gltfModel',
+		path: 'static/models/deathcap.glb',
+	},
+	{
+		name: 'fieldMushroom',
+		type: 'gltfModel',
+		path: 'static/models/fieldMushroom.glb',
+	},
+	{
+		name: 'goldenWaxcap',
+		type: 'gltfModel',
+		path: 'static/models/goldenWaxcap.glb',
+	},
+	{
+		name: 'hornOfPlenty',
+		type: 'gltfModel',
+		path: 'static/models/hornOfPlenty.glb',
+	},
+	{
+		name: 'jubileeWaxcap',
+		type: 'gltfModel',
+		path: 'static/models/jubileeWaxcap.glb',
+	},
+	{
+		name: 'magicMushrooms',
+		type: 'gltfModel',
+		path: 'static/models/magicMushrooms.glb',
+	},
+	{
+		name: 'pennybun',
+		type: 'gltfModel',
+		path: 'static/models/pennybun.glb',
+	},
+	{
+		name: 'puffball',
+		type: 'gltfModel',
+		path: 'static/models/puffball.glb',
+	},
+	{
+		name: 'shaggyInkcap',
+		type: 'gltfModel',
+		path: 'static/models/shaggyInkcap.glb',
+	},
+	{
+		name: 'theSickener',
+		type: 'gltfModel',
+		path: 'static/models/theSickener.glb',
+	},
+	{
+		name: 'truffle',
+		type: 'gltfModel',
+		path: 'static/models/truffle.glb',
 	},
 ]

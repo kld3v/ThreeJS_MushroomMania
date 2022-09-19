@@ -12,7 +12,7 @@ const Home = () => {
 	const [itemState, itemDispatch] = useItem()
 
 	const statsContext = useContext(StatsContext)
-	const { health, boostHealth, energy } = statsContext
+	const { health, boostHealth, energy, XP, points, level } = statsContext
 
 	// eslint-disable-next-line
 	const experience = new Experience(document.querySelector('canvas.webgl'))
@@ -27,6 +27,11 @@ const Home = () => {
 			<div className='stats'>
 				<HealthBar health={health} />
 				<EnergyBar energy={energy} />
+				<ul className='statsList'>
+					<li>Level: {level}</li>
+					<li>XP: {XP}</li>
+					<li>Points: {points}</li>
+				</ul>
 			</div>
 			<div className='grid-4'>
 				<Inventory></Inventory>
