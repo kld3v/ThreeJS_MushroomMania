@@ -2,8 +2,7 @@ import * as THREE from 'three'
 import Experience from '../Experience'
 
 import TestCharacter2 from './characters/TestCharacter2'
-import ItemAdd from './items/ItemAdd'
-import ItemList from './items/itemList'
+
 export default class Greyfield {
 	constructor() {
 		console.log('Greyfield model instantiated!')

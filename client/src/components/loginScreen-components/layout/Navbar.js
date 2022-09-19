@@ -1,25 +1,49 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useAuth, logoutPlayer } from '../../../context/auth/AuthState'
+import image from './mushroom.png'
 
 const Navbar = ({ title }) => {
 	const [authState, authDispatch] = useAuth()
 
-	const { player, isAuthenticated } = authState
+	const { isAuthenticated } = authState
 
 	const onLogout = () => {
 		logoutPlayer(authDispatch)
 	}
 
+	const [menu, setMenu] = useState(true)
+
+	const changeMenu = () => {
+		setMenu(!menu)
+	}
+	const menuIcon = (
+		<Fragment>
+			<img
+				src={image}
+				href='#open-modal'
+				onClick={changeMenu}
+				width='100'
+				height='50'
+				style={{ cursor: 'pointer' }}
+			/>
+		</Fragment>
+	)
 	const authLinks = (
 		<Fragment>
-			<li>Hello {player && player.username}</li>
-			<li>
-				<a href='#!' onClick={onLogout}>
-					Logout
-				</a>
-			</li>
+			<div className='authMenu'>
+				<li>Mushroom Book</li>
+				<li>Stats</li>
+				<li>
+					<a href='#!' onClick={onLogout}>
+						Logout
+					</a>
+					<a href='#' onClick={changeMenu}>
+						Close
+					</a>
+				</li>
+			</div>
 		</Fragment>
 	)
 
@@ -40,7 +64,7 @@ const Navbar = ({ title }) => {
 	return (
 		<div className='navbar '>
 			<h1>{title}</h1>
-			<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
+			<ul>{isAuthenticated ? (menu ? menuIcon : authLinks) : guestLinks}</ul>
 		</div>
 	)
 }

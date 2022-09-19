@@ -133,7 +133,7 @@ img {
 }
 .text-secondary {
 	font-family: 'Acme', sans-serif;
-	font-size: 15px;
+	font-size: 10px;
 
 	font-weight: 900;
 	color: var(--primary-color);

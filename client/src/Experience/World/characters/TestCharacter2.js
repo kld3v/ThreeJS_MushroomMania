@@ -9,7 +9,10 @@ export default class TestCharacter {
 		this.scene = this.experience.scene
 		this.camera = this.experience.camera.instance
 
-		this.flyAgaric = new ItemAdd('magicMushrooms')
+		this.flyAgaric = new ItemAdd('flyAgaric')
+		this.deathcap = new ItemAdd('deathcap')
+		this.fieldMushroom = new ItemAdd('fieldMushroom')
+		this.goldenWaxcap = new ItemAdd('goldenWaxcap')
 
 		this.time = this.experience.time
 		this._mixers = []
@@ -43,7 +46,6 @@ export default class TestCharacter {
 		this.rayDirection = this.rayDirection = new THREE.Vector3(0, 0, 1)
 		this.rayDirection.normalize()
 		this.raycaster = new THREE.Raycaster(this.rayOrigin, this.rayDirection, 0, 3)
-		console.log(this.raycaster)
 	}
 	_RAF() {
 		requestAnimationFrame((t) => {
@@ -58,10 +60,29 @@ export default class TestCharacter {
 			this._previousRAF = t
 			// console.log(this.raycaster)
 			this.intersectObjects = this.raycaster.intersectObjects(
-				this.flyAgaric.mushroom.children
+				this.deathcap.mushroom.children
 			)
 			if (this.intersectObjects.length) {
-				this.flyAgaric.awardPlayer()
+				console.log(this.intersectObjects[0])
+				switch (
+					this.intersectObjects[0].object.parent.name ||
+					this.intersectObjects[0].object.name
+				) {
+					case 'flyAgaric':
+						this.flyAgaric.awardPlayer()
+						break
+					case 'deathcap':
+						this.deathcap.awardPlayer()
+						break
+					case 'fieldMushroom':
+						this.fieldMushroom.awardPlayer()
+						break
+					case 'goldenWaxcap':
+						this.goldenWaxcap.awardPlayer()
+						break
+					default:
+						break
+				}
 			}
 		})
 	}
