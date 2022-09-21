@@ -47,6 +47,12 @@ export default [
 	// ITEMS
 
 	{
+		name: 'bake',
+		type: 'texture',
+		path: 'static/textures/bakes/bakedMushrooms.jpg',
+	},
+
+	{
 		name: 'flyAgaric',
 		type: 'gltfModel',
 		path: 'static/models/flyAgaric.glb',

@@ -14,6 +14,12 @@ export default class TestCharacter {
 		this.fieldMushroom = new ItemAdd('fieldMushroom')
 		this.goldenWaxcap = new ItemAdd('goldenWaxcap')
 
+		this.testingArray = [
+			this.flyAgaric.mushroom,
+			this.deathcap.mushroom,
+			this.fieldMushroom.mushroom,
+			this.goldenWaxcap.mushroom,
+		]
 		this.time = this.experience.time
 		this._mixers = []
 		this._previousRAF = null
@@ -59,30 +65,29 @@ export default class TestCharacter {
 			this._Step(t - this._previousRAF)
 			this._previousRAF = t
 			// console.log(this.raycaster)
-			this.intersectObjects = this.raycaster.intersectObjects(
-				this.deathcap.mushroom.children
-			)
+			this.intersectObjects = this.raycaster.intersectObjects(this.testingArray)
 			if (this.intersectObjects.length) {
 				console.log(this.intersectObjects[0])
-				switch (
-					this.intersectObjects[0].object.parent.name ||
-					this.intersectObjects[0].object.name
-				) {
-					case 'flyAgaric':
-						this.flyAgaric.awardPlayer()
-						break
-					case 'deathcap':
-						this.deathcap.awardPlayer()
-						break
-					case 'fieldMushroom':
-						this.fieldMushroom.awardPlayer()
-						break
-					case 'goldenWaxcap':
-						this.goldenWaxcap.awardPlayer()
-						break
-					default:
-						break
-				}
+				this.intersectObjects[0].object.parent.awardPlayer()
+				// switch (
+				// 	this.intersectObjects[0].object.parent.name ||
+				// 	this.intersectObjects[0].object.name
+				// ) {
+				// 	case 'flyAgaric':
+				// 		this.flyAgaric.awardPlayer()
+				// 		break
+				// 	case 'deathcap':
+				// 		this.deathcap.awardPlayer()
+				// 		break
+				// 	case 'fieldMushroom':
+				// 		this.fieldMushroom.awardPlayer()
+				// 		break
+				// 	case 'goldenWaxcap':
+				// 		this.goldenWaxcap.awardPlayer()
+				// 		break
+				// 	default:
+				// 		break
+				// }
 			}
 		})
 	}

@@ -22,6 +22,7 @@ const Navbar = ({ title }) => {
 		<Fragment>
 			<img
 				src={image}
+				alt='Mushroom Menu Icon'
 				href='#open-modal'
 				onClick={changeMenu}
 				width='100'
@@ -39,7 +40,7 @@ const Navbar = ({ title }) => {
 					<a href='#!' onClick={onLogout}>
 						Logout
 					</a>
-					<a href='#' onClick={changeMenu}>
+					<a href='#!' onClick={changeMenu}>
 						Close
 					</a>
 				</li>
