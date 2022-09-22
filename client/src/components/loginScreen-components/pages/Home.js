@@ -1,26 +1,44 @@
-import React, { useContext } from 'react'
+import React, { useEffect } from 'react'
 import Inventory from '../../inventory/Inventory.js'
 import Experience from '../../../Experience/Experience.js'
 
 import backpack from '../images/backpack.svg'
 
-import StatsContext from '../../../context/stats/statsContext'
 import HealthBar from './gameplayComponents/healthBar'
 import EnergyBar from './gameplayComponents/energyBar'
 import { useItem, hideItems } from '../../../context/Item/ItemState.js'
+import {
+	useStats,
+	getStats,
+	increaseXP,
+} from '../../../context/stats/StatsState'
 const Home = () => {
-	const [itemState, itemDispatch] = useItem()
+	const [, itemDispatch] = useItem()
 
-	const statsContext = useContext(StatsContext)
-	const { health, boostHealth, energy, XP, points, level } = statsContext
+	const [statsState, statsDispatch] = useStats()
+
+	const { health, energy, XP, points, level } = statsState
 
 	// eslint-disable-next-line
 	const experience = new Experience(document.querySelector('canvas.webgl'))
 
 	const onHide = () => {
 		hideItems(itemDispatch)
-		boostHealth()
 	}
+
+	const XPgain = () => {
+		console.log(XP)
+		let newXP = XP + 10
+		increaseXP(statsDispatch, {
+			experience: newXP,
+		})
+	}
+
+	useEffect(() => {
+		getStats(statsDispatch)
+
+		//eslint-disable-next-line
+	}, [statsDispatch])
 
 	return (
 		<>
@@ -33,6 +51,7 @@ const Home = () => {
 					<li>Points: {points}</li>
 				</ul>
 			</div>
+			<button onClick={XPgain}> hello click for XP: TEST </button>
 			<div className='grid-4'>
 				<Inventory></Inventory>
 			</div>

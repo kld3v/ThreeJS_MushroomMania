@@ -21,7 +21,10 @@ export const LOGOUT = 'LOGOUT'
 export const CLEAR_ERRORS = 'CLEAR_ERRORS'
 
 // stats
+export const GET_STATS = 'GET_STATS'
 export const BOOST_HEALTH = 'BOOST_HEALTH'
 export const DECREASE_HEALTH = 'DECREASE_HEALTH'
-export const BOOST_ENERGY = 'BOOST_ENERGY'
-export const DECREASE_ENERGY = 'DECREASE_ENERGY'
+export const INCREASE_POINTS = 'INCREASE_POINTS'
+export const ADD_XP = 'ADD_XP'
+export const UPDATE_HISTORY = 'UPDATE_HISTORY'
+export const ERROR = 'ERROR'

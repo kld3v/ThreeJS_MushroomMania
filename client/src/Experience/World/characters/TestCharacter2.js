@@ -13,12 +13,28 @@ export default class TestCharacter {
 		this.deathcap = new ItemAdd('deathcap')
 		this.fieldMushroom = new ItemAdd('fieldMushroom')
 		this.goldenWaxcap = new ItemAdd('goldenWaxcap')
+		this.jubileeWaxcap = new ItemAdd('jubileeWaxcap')
+		this.hornOfPlenty = new ItemAdd('hornOfPlenty')
+		this.magicMushrooms = new ItemAdd('magicMushrooms')
+		this.puffball = new ItemAdd('puffball')
+		this.shaggyInkcap = new ItemAdd('shaggyInkcap')
+		this.theSickener = new ItemAdd('theSickener')
+		this.truffle = new ItemAdd('truffle')
+		this.pennybun = new ItemAdd('pennybun')
 
 		this.testingArray = [
 			this.flyAgaric.mushroom,
 			this.deathcap.mushroom,
 			this.fieldMushroom.mushroom,
 			this.goldenWaxcap.mushroom,
+			this.jubileeWaxcap.mushroom,
+			this.hornOfPlenty.mushroom,
+			this.magicMushrooms.mushroom,
+			this.puffball.mushroom,
+			this.shaggyInkcap.mushroom,
+			this.theSickener.mushroom,
+			this.truffle.mushroom,
+			this.pennybun.mushroom,
 		]
 		this.time = this.experience.time
 		this._mixers = []

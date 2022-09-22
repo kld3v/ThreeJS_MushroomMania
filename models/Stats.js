@@ -16,6 +16,17 @@ const StatsSchema = mongoose.Schema({
 		type: Number,
 	},
 	experience: Number,
+	history: [
+		{
+			points: Number,
+			map: String,
+			time: String,
+			date: {
+				type: Date,
+				default: Date.now,
+			},
+		},
+	],
 
 	date: {
 		type: Date,

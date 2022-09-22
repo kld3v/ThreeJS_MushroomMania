@@ -20,14 +20,13 @@ router.get('/', auth, async (req, res) => {
 // @desc        Register a new player's stats on register.
 // @access      private
 router.post('/', auth, async (req, res) => {
-	const { level, health, energy, experience } = req.body
-
 	try {
 		const newCharacter = new Stats({
-			level,
-			health,
-			energy,
-			experience,
+			level: 0,
+			health: 100,
+			energy: 100,
+			experience: 0,
+			history: [],
 			player: req.player.id,
 		})
 		const stats = await newCharacter.save()
@@ -38,30 +37,54 @@ router.post('/', auth, async (req, res) => {
 	}
 })
 
+// @route       POST api/stats
+// @desc        Add a history record of points scored and on what map.
+// @access      private
+router.post('/history', auth, async (req, res) => {
+	try {
+		let stats = await Stats.find({ player: req.player.id })
+
+		const newHistoryEntry = {
+			points: req.body.points,
+			map: req.body.map,
+			time: req.body.time,
+		}
+
+		stats[0].history.unshift(newHistoryEntry)
+
+		await stats[0].save()
+		res.status(201).json(stats)
+	} catch (error) {
+		console.log(error)
+		res.status(500).send('History update failure')
+	}
+})
+
 // @route       PUT api/stats
 // @desc        update a value, increase or decrease health etc.
 // @access      private
-router.put('/:id', auth, async (req, res) => {
+router.put('/', auth, async (req, res) => {
 	// extract the equipped value from the client req object
 
 	try {
-		let stats = await Stats.findById(req.params.id)
+		let stats = await Stats.find({ player: req.player.id })
 
 		if (!stats) return res.status(404).json({ msg: 'stats not found' })
 
+		const { player, _id } = stats[0]
 		// make sure player can only edit their own stats
-		if (stats.player.toString() !== req.player.id) {
+		if (player.toString() !== req.player.id) {
 			return res.status(401).json({ msg: 'not authorised' })
 		}
 
-		stats = await Stats.findByIdAndUpdate(req.params.id, req.body, {
+		stats = await Stats.findByIdAndUpdate(_id, req.body, {
 			new: true,
 			runValidators: true,
 		})
 
 		res.status(200).json(stats)
 	} catch (err) {
-		console.error(error.message)
+		console.error(err.message)
 		res.status(500).send('Server Error ')
 	}
 })
