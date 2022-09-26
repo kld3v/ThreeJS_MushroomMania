@@ -24,7 +24,7 @@ export const useStats = () => {
 export const getStats = async (dispatch) => {
 	try {
 		const res = await axios.get('/api/stats')
-		console.log(res.data)
+
 		dispatch({ type: GET_STATS, payload: res.data[0] })
 	} catch (error) {
 		dispatch({ type: ERROR, payload: error.response.msg })
@@ -53,7 +53,7 @@ export const increaseXP = async (dispatch, stats) => {
 	}
 	try {
 		const res = await axios.put('/api/stats', stats, config)
-		console.log(res.data)
+
 		dispatch({ type: ADD_XP, payload: res.data })
 	} catch (error) {
 		dispatch({ type: ERROR, payload: error.response.msg })

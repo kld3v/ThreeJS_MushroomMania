@@ -24,7 +24,7 @@ export const useAuth = () => {
 export const loadPlayer = async (dispatch) => {
 	try {
 		const res = await axios.get('/api/auth')
-		console.log(res)
+
 		dispatch({ type: PLAYER_LOADED, payload: res.data })
 	} catch (err) {
 		dispatch({ type: AUTH_ERROR })
@@ -35,7 +35,7 @@ export const loadPlayer = async (dispatch) => {
 export const register = async (dispatch, formData) => {
 	try {
 		const res = await axios.post('/api/players', formData)
-		console.log(res)
+
 		dispatch({
 			type: REGISTER_SUCCESS,
 			payload: res.data,
@@ -53,7 +53,7 @@ export const register = async (dispatch, formData) => {
 export const loginPlayer = async (dispatch, formData) => {
 	try {
 		const res = await axios.post('/api/auth', formData)
-		console.log(res)
+
 		dispatch({
 			type: LOGIN_SUCCESS,
 			payload: res.data,

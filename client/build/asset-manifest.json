@@ -1,16 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.fbf3d51b.css",
-    "main.js": "/static/js/main.31f86f7d.js",
+    "main.js": "/static/js/main.5a012062.js",
     "static/media/landing.jpg": "/static/media/landing.6c28279f2c135255ec8b.jpg",
+    "static/media/mushroomMunchEdited.mp3": "/static/media/mushroomMunchEdited.a1d3b5c4b66e6c26b11b.mp3",
     "static/media/mushroom.png": "/static/media/mushroom.6d763976a80f5bef1a6b.png",
     "static/media/backpack.svg": "/static/media/backpack.0efe879611aa01a0ecdab2cbc29807e6.svg",
     "index.html": "/index.html",
     "main.fbf3d51b.css.map": "/static/css/main.fbf3d51b.css.map",
-    "main.31f86f7d.js.map": "/static/js/main.31f86f7d.js.map"
+    "main.5a012062.js.map": "/static/js/main.5a012062.js.map"
   },
   "entrypoints": [
     "static/css/main.fbf3d51b.css",
-    "static/js/main.31f86f7d.js"
+    "static/js/main.5a012062.js"
   ]
 }

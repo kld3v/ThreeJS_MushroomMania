@@ -31,6 +31,10 @@ export default class ItemAdd {
 				'Content-Type': 'application/json',
 			},
 		}
+
+		this.xpBody = {
+			increaseXP: true,
+		}
 	}
 
 	addItem() {
@@ -38,7 +42,7 @@ export default class ItemAdd {
 		this.mushroom.traverse((child) => {
 			child.material = this.mushroomMaterial
 		})
-		console.log(this.mushroom)
+
 		this.mushroom.scale.x = 5
 		this.mushroom.scale.y = 5
 		this.mushroom.scale.z = 5
@@ -48,13 +52,16 @@ export default class ItemAdd {
 		this.mushroom.awardPlayer = async () => {
 			if (!this.collected) {
 				this.collected = true
+				this.experience.testEventEmitter(this.mushroomName)
+
 				try {
 					this.res = await axios.post(
 						'/api/items',
 						this.info[this.mushroomName],
 						this.config
 					)
-					console.log(this.res.data)
+					this.res2 = await axios.put('/api/stats', this.xpBody, this.config)
+					console.log(this.res2)
 				} catch (err) {
 					console.log(err)
 				}

@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useAuth, logoutPlayer } from '../../../context/auth/AuthState'
 import image from './mushroom.png'
+// import sound from '../../../RunAmok.mp3'
 
 const Navbar = ({ title }) => {
 	const [authState, authDispatch] = useAuth()
 
 	const { isAuthenticated } = authState
-
+	// const playSound = new Audio(sound)
+	// playSound.play()
 	const onLogout = () => {
 		logoutPlayer(authDispatch)
 	}
@@ -44,6 +46,7 @@ const Navbar = ({ title }) => {
 						Close
 					</a>
 				</li>
+				<li>Sound Off</li>
 			</div>
 		</Fragment>
 	)

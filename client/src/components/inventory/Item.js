@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useItem, deleteItem } from '../../context/Item/ItemState'
+import sound from './mushroomMunchEdited.mp3'
 
 const Item = ({ item }) => {
 	const { _id, name, latin, description } = item
 
-	const [state, dispatch] = useItem()
+	const [, dispatch] = useItem()
+
+	const eatSound = new Audio(sound)
 
 	const onDelete = () => {
+		eatSound.play()
 		deleteItem(dispatch, _id)
 	}
-
 	return (
 		<div className='card bg-light'>
 			<h3 className='text-primary'>{name}</h3>

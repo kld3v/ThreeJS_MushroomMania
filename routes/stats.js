@@ -71,18 +71,30 @@ router.put('/', auth, async (req, res) => {
 
 		if (!stats) return res.status(404).json({ msg: 'stats not found' })
 
-		const { player, _id } = stats[0]
+		const { player, _id, experience } = stats[0]
+
 		// make sure player can only edit their own stats
 		if (player.toString() !== req.player.id) {
 			return res.status(401).json({ msg: 'not authorised' })
 		}
 
-		stats = await Stats.findByIdAndUpdate(_id, req.body, {
-			new: true,
-			runValidators: true,
-		})
+		let xp = {
+			experience: experience + 10,
+		}
+		if (req.body.increaseXP) {
+			stats = await Stats.findByIdAndUpdate(_id, xp, {
+				new: true,
+				runValidators: true,
+			})
+			return res.status(200).json(stats)
+		} else {
+			stats = await Stats.findByIdAndUpdate(_id, req.body, {
+				new: true,
+				runValidators: true,
+			})
 
-		res.status(200).json(stats)
+			res.status(200).json(stats)
+		}
 	} catch (err) {
 		console.error(err.message)
 		res.status(500).send('Server Error ')

@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import EventEmitter from './Utils/EventEmitter'
 
 import Debug from './Utils/Debug.js'
 import Sizes from './Utils/Sizes.js'
@@ -14,8 +15,9 @@ import FrameCount from './Utils/FrameCount.js'
 
 let instance = null
 
-export default class Experience {
+export default class Experience extends EventEmitter {
 	constructor(_canvas) {
+		super()
 		// Singleton
 		if (instance) {
 			return instance
@@ -66,6 +68,11 @@ export default class Experience {
 		this.camera.update()
 		this.world.update()
 		this.renderer.update()
+	}
+
+	testEventEmitter(mushroom) {
+		console.log('test event emitter')
+		this.trigger(mushroom)
 	}
 
 	destroy() {

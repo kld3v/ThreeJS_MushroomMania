@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../Experience'
-
+import Map from '../Utils/Map'
 import TestCharacter2 from './characters/TestCharacter2'
 
 export default class Greyfield {
@@ -9,28 +9,16 @@ export default class Greyfield {
 		this.experience = new Experience()
 		this.scene = this.experience.scene
 		this.resources = this.experience.resources
-
 		this.time = this.experience.time
 		this.camera = this.experience.camera
 
-		// Resource for landscape
+		// Map
+		this.map = new Map('map1', 'bakedScene', 'bakedSmallRocks')
 
-		// items
-		// this.randomNum = Math.floor(Math.random() * 10)
-		// this.itemList = ItemList[this.randomNum]
-		// console.log(this.itemList)
-
-		// debug
-		this.debug = this.experience.debug
-		if (this.debug.active) {
-			this.debugFolder = this.debug.ui.addFolder('landscape')
-			this.debugObject = {}
-		}
 		// Characters
 		this.testCharacter = new TestCharacter2()
 
-		// this.addItems()
-		this.setTempTerrain()
+		this.map.setTerrain()
 	}
 
 	setTempTerrain() {
@@ -48,11 +36,5 @@ export default class Greyfield {
 		this.scene.add(this.floor)
 	}
 
-	addItems() {}
-
-	update() {
-		if (this.debug.active) {
-		}
-		// this.testCharacter.animate()
-	}
+	update() {}
 }
