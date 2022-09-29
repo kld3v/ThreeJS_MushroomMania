@@ -32,7 +32,7 @@ export default class Experience extends EventEmitter {
 
 		// Setup
 		this.debug = new Debug()
-		this.frameCount = new FrameCount()
+		// this.frameCount = new FrameCount()
 		this.sizes = new Sizes()
 		this.time = new Time()
 		this.scene = new THREE.Scene()
@@ -49,10 +49,10 @@ export default class Experience extends EventEmitter {
 		// Time tick event
 		this.time.on('tick', () => {
 			/// access start frame ticker before each frame update
-			this.frameCount.stats.begin()
+			// this.frameCount.stats.begin()
 			this.update()
 			/// stop the frame counter after each frame
-			this.frameCount.stats.end()
+			// this.frameCount.stats.end()
 		})
 
 		// raycaster set up

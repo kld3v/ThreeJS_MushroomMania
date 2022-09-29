@@ -1,6 +1,6 @@
 import Navbar from './components/loginScreen-components/layout/Navbar.js'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
+
 import { Fragment } from 'react'
 import Home from './components/loginScreen-components/pages/Home.js'
 import About from './components/loginScreen-components/pages/About.js'

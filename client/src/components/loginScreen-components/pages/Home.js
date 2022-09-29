@@ -12,6 +12,15 @@ import {
 	getStats,
 	increaseXP,
 } from '../../../context/stats/StatsState'
+import {
+	Row,
+	Col,
+	Container,
+	Navbar,
+	Stack,
+	Button,
+	Badge,
+} from 'react-bootstrap'
 
 const Home = () => {
 	const experience = new Experience(document.querySelector('canvas.webgl'))
@@ -19,11 +28,11 @@ const Home = () => {
 	const [, itemDispatch] = useItem()
 	const [statsState, statsDispatch] = useStats()
 
-	const [flyAgaric, setflyAgaric] = useState(false)
+	const [, setflyAgaric] = useState(false)
 
 	useEffect(() => {
 		getStats(statsDispatch)
-	}, [])
+	}, [statsDispatch])
 
 	const { health, energy, XP, points, level } = statsState
 
@@ -31,34 +40,62 @@ const Home = () => {
 		hideItems(itemDispatch)
 	}
 
-	const XPGain = (gain) => {
+	const XPGain = (gain, mushroom) => {
 		console.log(XP)
 		let newXP = XP + gain
+		if (mushroom === 1) {
+			experience.off('flyAgaric')
+		} else if (mushroom === 2) {
+			experience.off('deathCap')
+		} else if (mushroom === 3) {
+			experience.off('hornOfPlenty')
+		}
 		increaseXP(statsDispatch, {
 			experience: newXP,
 		})
 	}
 	experience.on('flyAgaric', () => {
-		XPGain(10)
+		XPGain(10, 1)
 	})
 	experience.on('deathCap', () => {
-		XPGain(0)
+		XPGain(0, 2)
 	})
 	experience.on('hornOfPlenty', () => {
-		XPGain(40)
+		XPGain(40, 3)
 	})
 
 	return (
 		<>
-			<div className='stats'>
+			<Stack gap={2} className='stats'>
 				<HealthBar health={health ? health : 100} />
 				<EnergyBar energy={energy && energy} />
-				<ul className='statsList'>
-					<li>Level: {level}</li>
-					<li>XP: {XP}</li>
-					<li>Points: {points}</li>
-				</ul>
-			</div>
+				<Container>
+					<Row>
+						<Col>
+							<Badge style={{ width: '100%' }} bg='primary'>
+								<h5>Level:</h5>{' '}
+								<Badge bg='light'>
+									<div>{level}</div>{' '}
+								</Badge>
+							</Badge>
+						</Col>
+						<Col>
+							<Badge style={{ width: '100%' }} bg='warning'>
+								<h5>XP:</h5>{' '}
+								<Badge bg='light'>
+									<div>{XP}</div>
+								</Badge>
+							</Badge>
+						</Col>
+
+						<Col>
+							<Badge style={{ width: '100%' }} bg='success'>
+								<h5>Points:</h5> <Badge bg='light'>{points} </Badge>
+							</Badge>
+						</Col>
+					</Row>
+				</Container>
+			</Stack>
 
 			<div className='grid-4'>
 				<Inventory></Inventory>

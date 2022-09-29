@@ -4,16 +4,22 @@ const EnergyBar = ({ energy }) => {
 	console.log(energy)
 	let energyRatio = energy / 100
 
-	useEffect(() => {
-		const energyBar = document.getElementById('energy')
-		energyBar.style.transform = `scaleX(${energyRatio})`
+	useEffect(() => {}, [energy])
 
-		//   return () => {
-		//     second
-		//   }
-	}, [energy])
-
-	return <div id='energy'></div>
+	return (
+		<div id='energy'>
+			<div className='progress'>
+				<div
+					className='progress-bar bg-warning'
+					role='progressbar'
+					style={{ width: `${energy}%` }}
+					aria-valuenow={energyRatio}
+					aria-valuemin={0}
+					aria-valuemax={100}
+				/>
+			</div>
+		</div>
+	)
 }
 
 export default EnergyBar

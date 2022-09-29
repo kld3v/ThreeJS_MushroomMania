@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+:root {
+	--white-color: #eeedea;
+	--dark-color: #aad3ee71;
+	--light-color: #f4f4f4;
+	--danger-color: #dc3545;
+	--success-color: #28a745;
+	--subText-color: #ffffff;
+}
+
+body {
+	font-family: 'Acme', sans-serif;
+}
+label {
+	color: var(--white-color);
+	font-size: 2rem;
+}
+
+.btn {
+	color: var(--white-color);
+}
+
+a {
+	color: var(--white-color);
+	text-decoration: none;
+	font-size: 2rem;
+}
+
+a:hover {
+	text-decoration: none;
+}

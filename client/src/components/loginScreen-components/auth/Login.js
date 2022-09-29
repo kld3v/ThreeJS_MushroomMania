@@ -6,6 +6,11 @@ import {
 	clearErrors,
 	loginPlayer,
 } from '../../../context/auth/AuthState'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const Login = () => {
 	const alertContext = useContext(AlertContext)
@@ -50,22 +55,52 @@ const Login = () => {
 	if (isAuthenticated) return <Navigate to='/' />
 
 	return (
-		<div className='form-container'>
-			<form onSubmit={onSubmit}>
-				<div className='form-group'>
-					<label htmlFor='email'> Email</label>
-					<input type='email' name='email' value={email} onChange={onChange} />
-					<label htmlFor='password'> Password</label>
-					<input
-						type='password'
-						name='password'
-						value={password}
-						onChange={onChange}
-					/>
-				</div>
-				<input type='submit' value='Login' className='btn btn-primary btn-block' />
-			</form>
-		</div>
+		<Form>
+			<Container>
+				<Row>
+					<Col className='text-center' md={{ span: 6, offset: 3 }}>
+						<Form.Group className='mb-3' controlId='formBasicEmail'>
+							<Form.Label className='inputTitle'>Email</Form.Label>
+							<Form.Control
+								type='email'
+								placeholder='Enter email'
+								value={email}
+								name='email'
+								onChange={onChange}
+							/>
+							<Form.Text className='text-muted'></Form.Text>
+						</Form.Group>
+					</Col>
+				</Row>
+				<Row>
+					<Col className='text-center' md={{ span: 6, offset: 3 }}>
+						<Form.Group className='mb-3' controlId='formBasicPassword'>
+							<Form.Label>Password</Form.Label>
+							<Form.Control
+								as='input'
+								type='password'
+								placeholder='Password'
+								name='password'
+								value={password}
+								onChange={onChange}
+							/>
+						</Form.Group>
+					</Col>
+				</Row>
+				<Row>
+					<Col className='text-center' md={{ span: 6, offset: 3 }}>
+						<Button
+							type='button'
+							className='btn btn-outline-success'
+							size='lg'
+							onClick={onSubmit}
+						>
+							Log in
+						</Button>
+					</Col>
+				</Row>
+			</Container>
+		</Form>
 	)
 }
 
