@@ -50,10 +50,10 @@ ul {
 /* Home Screen Game Play */
 
 .backpack {
-	width: 100px;
+	width: 200px;
 	position: absolute;
 	bottom: 10vh;
-	left: 10vw;
+	left: 5vw;
 	cursor: pointer;
 }
 

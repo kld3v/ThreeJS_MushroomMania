@@ -39,6 +39,7 @@ const Login = () => {
 			[e.target.name]: e.target.value,
 		})
 	}
+	const instructions = document.getElementById('instructions')
 
 	const onSubmit = (e) => {
 		e.preventDefault()
@@ -49,6 +50,7 @@ const Login = () => {
 				email,
 				password,
 			})
+			instructions.classList.add('visible')
 		}
 	}
 

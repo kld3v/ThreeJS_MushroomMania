@@ -39,6 +39,7 @@ const Register = (props) => {
 			[e.target.name]: e.target.value,
 		})
 	}
+	const instructions = document.getElementById('instructions')
 
 	const onSubmit = (e) => {
 		e.preventDefault()
@@ -52,6 +53,7 @@ const Register = (props) => {
 				email,
 				password,
 			})
+			instructions.classList.add('visible')
 		}
 	}
 
