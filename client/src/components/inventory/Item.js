@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useItem, deleteItem } from '../../context/Item/ItemState'
 import sound from './mushroomMunchEdited.mp3'
 
+import { Button, Card, Col, Badge } from 'react-bootstrap'
 const Item = ({ item }) => {
 	const { _id, name, latin, description } = item
 
@@ -15,17 +16,22 @@ const Item = ({ item }) => {
 		deleteItem(dispatch, _id)
 	}
 	return (
-		<div className='card bg-light'>
-			<h3 className='text-primary'>{name}</h3>
-
-			<h5 className='text-secondary'>{latin}</h5>
-
-			<p className='description'>{description}</p>
-
-			<button className='btn btn-danger btn-sm' onClick={onDelete}>
-				Eat
-			</button>
-		</div>
+		<Col>
+			<Card style={{ width: '18rem' }}>
+				<Card.Img variant='top' src='' />
+				<Card.Body>
+					<Card.Title>{name}</Card.Title>
+					<Card.Subtitle className='mb-2 text-muted'>{latin}</Card.Subtitle>
+					<Card.Text>
+						{description} {latin}
+					</Card.Text>
+					<Button variant='primary' size='lg' onClick={onDelete}>
+						Munch
+					</Button>
+					<Badge className='float-end'>Quantity: 2</Badge>
+				</Card.Body>
+			</Card>
+		</Col>
 	)
 }
 

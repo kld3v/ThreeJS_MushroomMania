@@ -16,7 +16,6 @@
 }
 
 body {
-	overflow: hidden;
 	color: var(--light-color);
 }
 
@@ -48,16 +47,13 @@ ul {
 	list-style: none;
 }
 
-img {
-	width: 100%;
-}
 /* Home Screen Game Play */
 
 .backpack {
-	width: 3vw;
+	width: 100px;
 	position: absolute;
-	bottom: 5vw;
-	left: 5vw;
+	bottom: 10vh;
+	left: 10vw;
 	cursor: pointer;
 }
 
@@ -84,8 +80,9 @@ img {
 
 .grid-4 {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(10, 1fr);
 	grid-gap: 2rem;
+	overflow-y: auto;
 }
 
 .grid-2-3 {

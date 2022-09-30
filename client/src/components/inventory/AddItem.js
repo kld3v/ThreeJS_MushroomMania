@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react'
-import ItemContext from '../../context/Item/itemContext'
+import React, { useState } from 'react'
 import { useItem, addItem } from '../../context/Item/ItemState'
 
 const AddItem = () => {
