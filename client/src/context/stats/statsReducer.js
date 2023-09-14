@@ -5,7 +5,6 @@ import {
 	INCREASE_POINTS,
 	ADD_XP,
 	UPDATE_HISTORY,
-	ERROR,
 } from '../types'
 
 const statsReducer = (state, action) => {
@@ -13,9 +12,9 @@ const statsReducer = (state, action) => {
 		case GET_STATS:
 			return {
 				...state,
-				level: action.payload.level,
-				XP: action.payload.experience,
-				history: [action.payload.history],
+				level: 1,
+				XP: 1,
+				history: [],
 			}
 		case BOOST_HEALTH:
 			return {

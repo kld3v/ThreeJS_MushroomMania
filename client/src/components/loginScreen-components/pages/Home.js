@@ -14,7 +14,6 @@ import {
 	increaseXP,
 } from '../../../context/stats/StatsState'
 import { Row, Col, Container, Image, Stack, Badge } from 'react-bootstrap'
-import sound from './backpackSound.mp3'
 
 const Home = () => {
 	const experience = new Experience(document.querySelector('canvas.webgl'))
@@ -31,9 +30,7 @@ const Home = () => {
 
 	const { health, energy, XP, points, level } = statsState
 
-	const backPackSound = new Audio(sound)
 	const onHide = () => {
-		backPackSound.play()
 		hideItems(itemDispatch)
 	}
 
@@ -65,13 +62,19 @@ const Home = () => {
 
 	return (
 		<Container fluid>
-			<Stack gap={2} className='stats'>
+			<Stack
+				gap={2}
+				className='stats'
+			>
 				<HealthBar health={health ? health : 100} />
 				<EnergyBar energy={energy && energy} />
 				<Container>
 					<Row>
 						<Col>
-							<Badge style={{ width: '100%' }} bg='primary'>
+							<Badge
+								style={{ width: '100%' }}
+								bg='primary'
+							>
 								<h5>Level</h5>{' '}
 								<Badge bg='light'>
 									<div>{level}</div>{' '}
@@ -79,7 +82,10 @@ const Home = () => {
 							</Badge>
 						</Col>
 						<Col>
-							<Badge style={{ width: '100%' }} bg='warning'>
+							<Badge
+								style={{ width: '100%' }}
+								bg='warning'
+							>
 								<h5>XP</h5>{' '}
 								<Badge bg='light'>
 									<div>{XP}</div>
@@ -88,7 +94,10 @@ const Home = () => {
 						</Col>
 
 						<Col>
-							<Badge style={{ width: '100%' }} bg='success'>
+							<Badge
+								style={{ width: '100%' }}
+								bg='success'
+							>
 								<h5>Points</h5> <Badge bg='light'>{points} </Badge>
 							</Badge>
 						</Col>

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useItem, deleteItem } from '../../context/Item/ItemState'
-import sound from './mushroomMunchEdited.mp3'
 
 import { Button, Card, Col, Badge } from 'react-bootstrap'
 const Item = ({ item }) => {
@@ -9,23 +8,27 @@ const Item = ({ item }) => {
 
 	const [, dispatch] = useItem()
 
-	const eatSound = new Audio(sound)
-
 	const onDelete = () => {
-		eatSound.play()
 		deleteItem(dispatch, _id)
 	}
 	return (
 		<Col>
 			<Card style={{ width: '18rem' }}>
-				<Card.Img variant='top' src='' />
+				<Card.Img
+					variant='top'
+					src=''
+				/>
 				<Card.Body>
 					<Card.Title>{name}</Card.Title>
 					<Card.Subtitle className='mb-2 text-muted'>{latin}</Card.Subtitle>
 					<Card.Text>
 						{description} {latin}
 					</Card.Text>
-					<Button variant='primary' size='lg' onClick={onDelete}>
+					<Button
+						variant='primary'
+						size='lg'
+						onClick={onDelete}
+					>
 						Munch
 					</Button>
 					<Badge className='float-end'>Quantity: 2</Badge>

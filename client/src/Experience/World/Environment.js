@@ -15,7 +15,7 @@ export default class Environment {
 			this.debugFolder = this.debug.ui.addFolder('environment')
 		}
 
-		// this.setEnvironmentMap()
+		this.setEnvironmentMap()
 		// this.setDirectionLight()
 		// this.setHemisphereLight()
 		this.setAmbientLight()
@@ -42,7 +42,7 @@ export default class Environment {
 		this.environmentMap.texture.encoding = THREE.sRGBEncoding
 
 		// this.scene.environment = this.environmentMap.texture
-		// this.scene.background = this.environmentMap.texture
+		this.scene.background = this.environmentMap.texture
 
 		this.environmentMap.updateMaterials = () => {
 			this.scene.traverse((child) => {
